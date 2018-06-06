@@ -78,9 +78,13 @@ Sub Build_UI
 	pnlleftmenu.AddView(accountrank,pnlleftmenu.Left + 1%x,35%y,pnlleftmenu.Width/2,10%y)
 	pnlleftmenu.AddView(showrank,(accountrank.Left + accountrank.Width) + 1%x,35%y,pnlleftmenu.Width/2,10%y)
 	pnlleftmenu.AddView(accountbalance,pnlleftmenu.Left + 1%x,45%y,pnlleftmenu.Width - 2%x,10%y)
-
+	pnlleftmenu.AddView(slotmachine,pnlleftmenu.Left + 1%x,65%y,pnlleftmenu.Width - 2%x,accountname.Height)
+	pnlleftmenu.AddView(btn_logout,pnlleftmenu.Left + 1%x,(slotmachine.Top+slotmachine.Height) + 5%y,pnlleftmenu.Width - 2%x,slotmachine.Height)
 End Sub
-
 Sub slotz_Click
 	
+End Sub
+
+Sub logout_Click
+	CallSub(Main,"ShowHideMainUI")
 End Sub

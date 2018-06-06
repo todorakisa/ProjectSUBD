@@ -58,3 +58,9 @@ Public Sub ValidateUser(username As String,password As String)
 	cursor.Close
 	database.Close
 End Sub
+
+Public Sub CreateBet(teamA As String,teamAcoef As String,teamB As String,teamBcoef As String,matchinfo As String)
+	database.Initialize(File.DirDefaultExternal,"UserAndBetsDatabase.db",True)
+	database.ExecNonQuery("INSERT INTO Bets (TeamA,TeamAcoef,TeamB,TeamBcoef,MatchInfo) VALUES ('"&teamA&"','"&teamAcoef&"','"&teamB&"','"&teamBcoef&"','"&matchinfo&"')")
+	database.Close
+End Sub

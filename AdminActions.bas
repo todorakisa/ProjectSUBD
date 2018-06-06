@@ -164,7 +164,7 @@ Sub submit_Click
 		If teamAcoef.Text = "" Or teamBcoef.Text = "" Then
 			ToastMessageShow("Missing information",False)
 		Else
-			
+			DB.CreateBet(teamA.Text,teamAcoef.Text,teamB.Text,teamBcoef.Text,matchinfo.Text)
 			ActiveBetsCreate
 		End If
 	End If
@@ -187,7 +187,6 @@ Sub ActiveBetsCreate
 		betteamA.Initialize("btn1")
 		betteamB.Initialize("btn2")
 				
-	
 		teamAname.Text = cursor.GetString("TeamA")
 		teamBname.Text = cursor.GetString("TeamB")
 		lblteamAcoef.Text = cursor.GetString("TeamAcoef")
