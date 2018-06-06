@@ -137,11 +137,17 @@ Sub ActiveBetsCreate
 End Sub
 
 Sub btnbetA_Click
-
+	Dim btn As Button = Sender
+	Dim templbl As Label = btnlistA.Get(btn.Tag)
+	ToastMessageShow( Types.currentuser.name & " currently betting on " & templbl.Text  ,False)
+'	func for bet popup
 End Sub
 
 Sub btnbetB_Click
-
+	Dim btn As Button = Sender
+	Dim templbl As Label = btnlistB.Get(btn.Tag)
+	ToastMessageShow( Types.currentuser.name & " currently betting on " & templbl.Text  ,False)
+'	func for bet popup
 End Sub
 
 Sub Moneymangmt_Contents

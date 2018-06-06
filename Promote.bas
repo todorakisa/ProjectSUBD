@@ -44,7 +44,7 @@ Sub btn1_Click
 		ToastMessageShow("Nothing entered",False)
 		CallSub(Main,"ShowRankUpdate")
 	Else
-'		db func here
+		DB.UserSetRank( enterrank.Text ,enterusername.text)
 		CallSub(Main,"ShowRankUpdate")
 	End If
 End Sub

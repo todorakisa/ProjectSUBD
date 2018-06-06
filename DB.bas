@@ -64,3 +64,9 @@ Public Sub CreateBet(teamA As String,teamAcoef As String,teamB As String,teamBco
 	database.ExecNonQuery("INSERT INTO Bets (TeamA,TeamAcoef,TeamB,TeamBcoef,MatchInfo) VALUES ('"&teamA&"','"&teamAcoef&"','"&teamB&"','"&teamBcoef&"','"&matchinfo&"')")
 	database.Close
 End Sub
+
+Public Sub UserSetRank(rank As String,username As String)
+	database.Initialize(File.DirDefaultExternal,"UserAndBetsDatabase.db",True)
+	database.ExecNonQuery("UPDATE  Users SET Rank = '" & rank &"' WHERE Username = '"& username &"'")
+	database.Close
+End Sub
