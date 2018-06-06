@@ -20,6 +20,7 @@ Library2=reflection
 Library3=sql
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="26"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~
 Module1=DB
+Module10=Promote
 Module2=Register
 Module3=Login
 Module4=appmaininterface
@@ -30,7 +31,7 @@ Module8=Starter
 Module9=HelperFunctions
 NumberOfFiles=7
 NumberOfLibraries=3
-NumberOfModules=9
+NumberOfModules=10
 Version=8
 @EndOfDesignText@
 #Region  Project Attributes 
@@ -56,7 +57,7 @@ Sub Globals
 	Dim registerscreen As Register
 	Public loginscr As Login
 	Dim appmainscreen As appmaininterface
-	
+	Dim rankupdate As Promote
 
 	Dim IsFirstTime As Boolean = True
 '	Dim bet_admin As AdminActions
@@ -135,4 +136,18 @@ Public Sub DepositWithdrawMoney(money As Double)
 	appmainscreen.accountbalance.Text = money
 End Sub
 
+Public Sub BuildPromoteBar
+	If rankupdate.IsInitialized = False Then
+		rankupdate.Initialize
+		Activity.AddView(rankupdate.background,0,0,100%x,100%y)
+		rankupdate.background.Visible = False
+	End If
+End Sub
 
+Public Sub ShowRankUpdate
+	If rankupdate.background.Visible = False Then
+		rankupdate.background.Visible = True
+	Else
+		rankupdate.background.Visible = False
+	End If
+End Sub
