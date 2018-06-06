@@ -1,0 +1,867 @@
+package b4a.example;
+
+
+import anywheresoftware.b4a.BA;
+import anywheresoftware.b4a.B4AClass;
+import anywheresoftware.b4a.BALayout;
+import anywheresoftware.b4a.debug.*;
+
+public class slotgame extends B4AClass.ImplB4AClass implements BA.SubDelegator{
+    private static java.util.HashMap<String, java.lang.reflect.Method> htSubs;
+    private void innerInitialize(BA _ba) throws Exception {
+        if (ba == null) {
+            ba = new anywheresoftware.b4a.ShellBA(_ba, this, htSubs, "b4a.example.slotgame");
+            if (htSubs == null) {
+                ba.loadHtSubs(this.getClass());
+                htSubs = ba.htSubs;
+            }
+            
+        }
+        if (BA.isShellModeRuntimeCheck(ba)) 
+			   this.getClass().getMethod("_class_globals", b4a.example.slotgame.class).invoke(this, new Object[] {null});
+        else
+            ba.raiseEvent2(null, true, "class_globals", false);
+    }
+
+ 
+    public void  innerInitializeHelper(anywheresoftware.b4a.BA _ba) throws Exception{
+        innerInitialize(_ba);
+    }
+    public Object callSub(String sub, Object sender, Object[] args) throws Exception {
+        return BA.SubDelegator.SubNotFound;
+    }
+public anywheresoftware.b4a.keywords.Common __c = null;
+public anywheresoftware.b4a.objects.PanelWrapper _pnlmain = null;
+public anywheresoftware.b4a.objects.ButtonWrapper _spinbtn = null;
+public anywheresoftware.b4a.objects.ButtonWrapper _betbtnup = null;
+public anywheresoftware.b4a.objects.ButtonWrapper _betbtndown = null;
+public anywheresoftware.b4a.objects.LabelWrapper _lblbetshow = null;
+public int _bettedmoney = 0;
+public int _jackpot = 0;
+public anywheresoftware.b4a.objects.PanelWrapper _pnlholder1 = null;
+public anywheresoftware.b4a.objects.PanelWrapper _pnlholder2 = null;
+public anywheresoftware.b4a.objects.PanelWrapper _pnlholder3 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _pnl1_lbl1 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _pnl1_lbl2 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _pnl1_lbl3 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _pnl1_lbl4 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _pnl1_lbl5 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _pnl2_lbl1 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _pnl2_lbl2 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _pnl2_lbl3 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _pnl2_lbl4 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _pnl2_lbl5 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _pnl3_lbl1 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _pnl3_lbl2 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _pnl3_lbl3 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _pnl3_lbl4 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _pnl3_lbl5 = null;
+public int[] _asd = null;
+public anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper _picture1 = null;
+public anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper _picture2 = null;
+public anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper _picture3 = null;
+public anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper _picture4 = null;
+public anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper _picture5 = null;
+public anywheresoftware.b4a.objects.Timer _spintimer = null;
+public anywheresoftware.b4a.objects.Timer _spintimeranimationa = null;
+public anywheresoftware.b4a.objects.Timer _spintimeranimationb = null;
+public anywheresoftware.b4a.objects.Timer _spintimeranimationc = null;
+public anywheresoftware.b4a.objects.collections.Map _picmap = null;
+public int _lastpickedint = 0;
+public b4a.example.main _main = null;
+public b4a.example.helperfunctions _helperfunctions = null;
+public b4a.example.types _types = null;
+public b4a.example.starter _starter = null;
+public String  _initialize(b4a.example.slotgame __ref,anywheresoftware.b4a.BA _ba) throws Exception{
+__ref = this;
+innerInitialize(_ba);
+RDebugUtils.currentModule="slotgame";
+if (Debug.shouldDelegate(ba, "initialize"))
+	return (String) Debug.delegate(ba, "initialize", new Object[] {_ba});
+RDebugUtils.currentLine=5767168;
+ //BA.debugLineNum = 5767168;BA.debugLine="Public Sub Initialize";
+RDebugUtils.currentLine=5767169;
+ //BA.debugLineNum = 5767169;BA.debugLine="pnlmain.Initialize(\"mainpnl\")";
+__ref._pnlmain.Initialize(ba,"mainpnl");
+RDebugUtils.currentLine=5767170;
+ //BA.debugLineNum = 5767170;BA.debugLine="spinbtn.Initialize(\"spinaction\")";
+__ref._spinbtn.Initialize(ba,"spinaction");
+RDebugUtils.currentLine=5767172;
+ //BA.debugLineNum = 5767172;BA.debugLine="pnlholder1.Initialize(\"pnl1\")";
+__ref._pnlholder1.Initialize(ba,"pnl1");
+RDebugUtils.currentLine=5767173;
+ //BA.debugLineNum = 5767173;BA.debugLine="pnlholder2.Initialize(\"pnl2\")";
+__ref._pnlholder2.Initialize(ba,"pnl2");
+RDebugUtils.currentLine=5767174;
+ //BA.debugLineNum = 5767174;BA.debugLine="pnlholder3.Initialize(\"pnl3\")";
+__ref._pnlholder3.Initialize(ba,"pnl3");
+RDebugUtils.currentLine=5767176;
+ //BA.debugLineNum = 5767176;BA.debugLine="pnl1_lbl1.Initialize(\"lbl11\")";
+__ref._pnl1_lbl1.Initialize(ba,"lbl11");
+RDebugUtils.currentLine=5767177;
+ //BA.debugLineNum = 5767177;BA.debugLine="pnl1_lbl2.Initialize(\"lbl12\")";
+__ref._pnl1_lbl2.Initialize(ba,"lbl12");
+RDebugUtils.currentLine=5767178;
+ //BA.debugLineNum = 5767178;BA.debugLine="pnl1_lbl3.Initialize(\"lbl13\")";
+__ref._pnl1_lbl3.Initialize(ba,"lbl13");
+RDebugUtils.currentLine=5767179;
+ //BA.debugLineNum = 5767179;BA.debugLine="pnl1_lbl4.Initialize(\"lbl14\")";
+__ref._pnl1_lbl4.Initialize(ba,"lbl14");
+RDebugUtils.currentLine=5767180;
+ //BA.debugLineNum = 5767180;BA.debugLine="pnl1_lbl5.Initialize(\"lbl15\")";
+__ref._pnl1_lbl5.Initialize(ba,"lbl15");
+RDebugUtils.currentLine=5767182;
+ //BA.debugLineNum = 5767182;BA.debugLine="pnl2_lbl1.Initialize(\"lbl21\")";
+__ref._pnl2_lbl1.Initialize(ba,"lbl21");
+RDebugUtils.currentLine=5767183;
+ //BA.debugLineNum = 5767183;BA.debugLine="pnl2_lbl2.Initialize(\"lbl22\")";
+__ref._pnl2_lbl2.Initialize(ba,"lbl22");
+RDebugUtils.currentLine=5767184;
+ //BA.debugLineNum = 5767184;BA.debugLine="pnl2_lbl3.Initialize(\"lbl23\")";
+__ref._pnl2_lbl3.Initialize(ba,"lbl23");
+RDebugUtils.currentLine=5767185;
+ //BA.debugLineNum = 5767185;BA.debugLine="pnl2_lbl4.Initialize(\"lbl24\")";
+__ref._pnl2_lbl4.Initialize(ba,"lbl24");
+RDebugUtils.currentLine=5767186;
+ //BA.debugLineNum = 5767186;BA.debugLine="pnl2_lbl5.Initialize(\"lbl25\")";
+__ref._pnl2_lbl5.Initialize(ba,"lbl25");
+RDebugUtils.currentLine=5767188;
+ //BA.debugLineNum = 5767188;BA.debugLine="pnl3_lbl1.Initialize(\"lbl31\")";
+__ref._pnl3_lbl1.Initialize(ba,"lbl31");
+RDebugUtils.currentLine=5767189;
+ //BA.debugLineNum = 5767189;BA.debugLine="pnl3_lbl2.Initialize(\"lbl32\")";
+__ref._pnl3_lbl2.Initialize(ba,"lbl32");
+RDebugUtils.currentLine=5767190;
+ //BA.debugLineNum = 5767190;BA.debugLine="pnl3_lbl3.Initialize(\"lbl33\")";
+__ref._pnl3_lbl3.Initialize(ba,"lbl33");
+RDebugUtils.currentLine=5767191;
+ //BA.debugLineNum = 5767191;BA.debugLine="pnl3_lbl4.Initialize(\"lbl34\")";
+__ref._pnl3_lbl4.Initialize(ba,"lbl34");
+RDebugUtils.currentLine=5767192;
+ //BA.debugLineNum = 5767192;BA.debugLine="pnl3_lbl5.Initialize(\"lbl35\")";
+__ref._pnl3_lbl5.Initialize(ba,"lbl35");
+RDebugUtils.currentLine=5767194;
+ //BA.debugLineNum = 5767194;BA.debugLine="betbtnup.Initialize(\"betbtn1\")";
+__ref._betbtnup.Initialize(ba,"betbtn1");
+RDebugUtils.currentLine=5767195;
+ //BA.debugLineNum = 5767195;BA.debugLine="betbtndown.Initialize(\"betbtn2\")";
+__ref._betbtndown.Initialize(ba,"betbtn2");
+RDebugUtils.currentLine=5767196;
+ //BA.debugLineNum = 5767196;BA.debugLine="lblbetshow.Initialize(\"betshow\")";
+__ref._lblbetshow.Initialize(ba,"betshow");
+RDebugUtils.currentLine=5767198;
+ //BA.debugLineNum = 5767198;BA.debugLine="SpinTimer.Initialize(\"SpinT\",2000)";
+__ref._spintimer.Initialize(ba,"SpinT",(long) (2000));
+RDebugUtils.currentLine=5767199;
+ //BA.debugLineNum = 5767199;BA.debugLine="SpinTimer.Enabled = False";
+__ref._spintimer.setEnabled(__c.False);
+RDebugUtils.currentLine=5767200;
+ //BA.debugLineNum = 5767200;BA.debugLine="SpinTimerAnimationA.Initialize(\"SpinA\",20)";
+__ref._spintimeranimationa.Initialize(ba,"SpinA",(long) (20));
+RDebugUtils.currentLine=5767201;
+ //BA.debugLineNum = 5767201;BA.debugLine="SpinTimerAnimationA.Enabled = False";
+__ref._spintimeranimationa.setEnabled(__c.False);
+RDebugUtils.currentLine=5767202;
+ //BA.debugLineNum = 5767202;BA.debugLine="picmap.Initialize";
+__ref._picmap.Initialize();
+RDebugUtils.currentLine=5767203;
+ //BA.debugLineNum = 5767203;BA.debugLine="BuildUI";
+__ref._buildui(null);
+RDebugUtils.currentLine=5767204;
+ //BA.debugLineNum = 5767204;BA.debugLine="End Sub";
+return "";
+}
+public String  _addingitemstomap1(b4a.example.slotgame __ref) throws Exception{
+__ref = this;
+RDebugUtils.currentModule="slotgame";
+if (Debug.shouldDelegate(ba, "addingitemstomap1"))
+	return (String) Debug.delegate(ba, "addingitemstomap1", null);
+RDebugUtils.currentLine=5898240;
+ //BA.debugLineNum = 5898240;BA.debugLine="Sub Addingitemstomap1";
+RDebugUtils.currentLine=5898241;
+ //BA.debugLineNum = 5898241;BA.debugLine="picmap.Put(\"1\",picture1)";
+__ref._picmap.Put((Object)("1"),(Object)(__ref._picture1.getObject()));
+RDebugUtils.currentLine=5898242;
+ //BA.debugLineNum = 5898242;BA.debugLine="picmap.Put(\"2\",picture2)";
+__ref._picmap.Put((Object)("2"),(Object)(__ref._picture2.getObject()));
+RDebugUtils.currentLine=5898243;
+ //BA.debugLineNum = 5898243;BA.debugLine="picmap.Put(\"3\",picture3)";
+__ref._picmap.Put((Object)("3"),(Object)(__ref._picture3.getObject()));
+RDebugUtils.currentLine=5898244;
+ //BA.debugLineNum = 5898244;BA.debugLine="picmap.Put(\"4\",picture4)";
+__ref._picmap.Put((Object)("4"),(Object)(__ref._picture4.getObject()));
+RDebugUtils.currentLine=5898245;
+ //BA.debugLineNum = 5898245;BA.debugLine="picmap.Put(\"5\",picture5)";
+__ref._picmap.Put((Object)("5"),(Object)(__ref._picture5.getObject()));
+RDebugUtils.currentLine=5898246;
+ //BA.debugLineNum = 5898246;BA.debugLine="End Sub";
+return "";
+}
+public String  _betbtn1_click(b4a.example.slotgame __ref) throws Exception{
+__ref = this;
+RDebugUtils.currentModule="slotgame";
+if (Debug.shouldDelegate(ba, "betbtn1_click"))
+	return (String) Debug.delegate(ba, "betbtn1_click", null);
+RDebugUtils.currentLine=6619136;
+ //BA.debugLineNum = 6619136;BA.debugLine="Sub betbtn1_Click";
+RDebugUtils.currentLine=6619137;
+ //BA.debugLineNum = 6619137;BA.debugLine="If bettedmoney < 20 Then";
+if (__ref._bettedmoney<20) { 
+RDebugUtils.currentLine=6619138;
+ //BA.debugLineNum = 6619138;BA.debugLine="bettedmoney = bettedmoney + 1";
+__ref._bettedmoney = (int) (__ref._bettedmoney+1);
+ }else {
+RDebugUtils.currentLine=6619140;
+ //BA.debugLineNum = 6619140;BA.debugLine="ToastMessageShow(\"Max Bet Reached!\",False)";
+__c.ToastMessageShow(BA.ObjectToCharSequence("Max Bet Reached!"),__c.False);
+ };
+RDebugUtils.currentLine=6619142;
+ //BA.debugLineNum = 6619142;BA.debugLine="lblbetshow.Text = bettedmoney";
+__ref._lblbetshow.setText(BA.ObjectToCharSequence(__ref._bettedmoney));
+RDebugUtils.currentLine=6619143;
+ //BA.debugLineNum = 6619143;BA.debugLine="End Sub";
+return "";
+}
+public String  _betbtn2_click(b4a.example.slotgame __ref) throws Exception{
+__ref = this;
+RDebugUtils.currentModule="slotgame";
+if (Debug.shouldDelegate(ba, "betbtn2_click"))
+	return (String) Debug.delegate(ba, "betbtn2_click", null);
+RDebugUtils.currentLine=6684672;
+ //BA.debugLineNum = 6684672;BA.debugLine="Sub betbtn2_Click";
+RDebugUtils.currentLine=6684673;
+ //BA.debugLineNum = 6684673;BA.debugLine="bettedmoney = bettedmoney - 1";
+__ref._bettedmoney = (int) (__ref._bettedmoney-1);
+RDebugUtils.currentLine=6684674;
+ //BA.debugLineNum = 6684674;BA.debugLine="If bettedmoney < 1 Then";
+if (__ref._bettedmoney<1) { 
+RDebugUtils.currentLine=6684675;
+ //BA.debugLineNum = 6684675;BA.debugLine="ToastMessageShow(\"Minimum Bet Reached\",False)";
+__c.ToastMessageShow(BA.ObjectToCharSequence("Minimum Bet Reached"),__c.False);
+RDebugUtils.currentLine=6684676;
+ //BA.debugLineNum = 6684676;BA.debugLine="bettedmoney = 1";
+__ref._bettedmoney = (int) (1);
+ };
+RDebugUtils.currentLine=6684678;
+ //BA.debugLineNum = 6684678;BA.debugLine="lblbetshow.Text = bettedmoney";
+__ref._lblbetshow.setText(BA.ObjectToCharSequence(__ref._bettedmoney));
+RDebugUtils.currentLine=6684679;
+ //BA.debugLineNum = 6684679;BA.debugLine="End Sub";
+return "";
+}
+public String  _buildpnlhold1(b4a.example.slotgame __ref) throws Exception{
+__ref = this;
+RDebugUtils.currentModule="slotgame";
+if (Debug.shouldDelegate(ba, "buildpnlhold1"))
+	return (String) Debug.delegate(ba, "buildpnlhold1", null);
+RDebugUtils.currentLine=5963776;
+ //BA.debugLineNum = 5963776;BA.debugLine="Sub BuildPNLHOLD1";
+RDebugUtils.currentLine=5963777;
+ //BA.debugLineNum = 5963777;BA.debugLine="pnlholder1.AddView(pnl1_lbl1,0,0,10%x,10%y)";
+__ref._pnlholder1.AddView((android.view.View)(__ref._pnl1_lbl1.getObject()),(int) (0),(int) (0),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=5963778;
+ //BA.debugLineNum = 5963778;BA.debugLine="pnlholder1.AddView(pnl1_lbl2,0,10%y,10%x,10%y)";
+__ref._pnlholder1.AddView((android.view.View)(__ref._pnl1_lbl2.getObject()),(int) (0),__c.PerYToCurrent((float) (10),ba),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=5963779;
+ //BA.debugLineNum = 5963779;BA.debugLine="pnlholder1.AddView(pnl1_lbl3,0,20%y,10%x,10%y)";
+__ref._pnlholder1.AddView((android.view.View)(__ref._pnl1_lbl3.getObject()),(int) (0),__c.PerYToCurrent((float) (20),ba),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=5963780;
+ //BA.debugLineNum = 5963780;BA.debugLine="pnlholder1.AddView(pnl1_lbl4,0,30%y,10%x,10%y)";
+__ref._pnlholder1.AddView((android.view.View)(__ref._pnl1_lbl4.getObject()),(int) (0),__c.PerYToCurrent((float) (30),ba),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=5963781;
+ //BA.debugLineNum = 5963781;BA.debugLine="pnlholder1.AddView(pnl1_lbl5,0,40%y,10%x,10%y)";
+__ref._pnlholder1.AddView((android.view.View)(__ref._pnl1_lbl5.getObject()),(int) (0),__c.PerYToCurrent((float) (40),ba),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=5963783;
+ //BA.debugLineNum = 5963783;BA.debugLine="pnl1_lbl1.SetBackgroundImage(picture1)";
+__ref._pnl1_lbl1.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._picture1.getObject()));
+RDebugUtils.currentLine=5963784;
+ //BA.debugLineNum = 5963784;BA.debugLine="pnl1_lbl2.SetBackgroundImage(picture2)";
+__ref._pnl1_lbl2.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._picture2.getObject()));
+RDebugUtils.currentLine=5963785;
+ //BA.debugLineNum = 5963785;BA.debugLine="pnl1_lbl3.SetBackgroundImage(picture3)";
+__ref._pnl1_lbl3.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._picture3.getObject()));
+RDebugUtils.currentLine=5963786;
+ //BA.debugLineNum = 5963786;BA.debugLine="pnl1_lbl4.SetBackgroundImage(picture4)";
+__ref._pnl1_lbl4.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._picture4.getObject()));
+RDebugUtils.currentLine=5963787;
+ //BA.debugLineNum = 5963787;BA.debugLine="pnl1_lbl5.SetBackgroundImage(picture5)";
+__ref._pnl1_lbl5.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._picture5.getObject()));
+RDebugUtils.currentLine=5963789;
+ //BA.debugLineNum = 5963789;BA.debugLine="End Sub";
+return "";
+}
+public String  _buildpnlhold2(b4a.example.slotgame __ref) throws Exception{
+__ref = this;
+RDebugUtils.currentModule="slotgame";
+if (Debug.shouldDelegate(ba, "buildpnlhold2"))
+	return (String) Debug.delegate(ba, "buildpnlhold2", null);
+RDebugUtils.currentLine=6029312;
+ //BA.debugLineNum = 6029312;BA.debugLine="Sub BuildPNLHOLD2";
+RDebugUtils.currentLine=6029313;
+ //BA.debugLineNum = 6029313;BA.debugLine="pnlholder2.AddView(pnl2_lbl1,0,0,10%x,10%y)";
+__ref._pnlholder2.AddView((android.view.View)(__ref._pnl2_lbl1.getObject()),(int) (0),(int) (0),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=6029314;
+ //BA.debugLineNum = 6029314;BA.debugLine="pnlholder2.AddView(pnl2_lbl2,0,10%y,10%x,10%y)";
+__ref._pnlholder2.AddView((android.view.View)(__ref._pnl2_lbl2.getObject()),(int) (0),__c.PerYToCurrent((float) (10),ba),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=6029315;
+ //BA.debugLineNum = 6029315;BA.debugLine="pnlholder2.AddView(pnl2_lbl3,0,20%y,10%x,10%y)";
+__ref._pnlholder2.AddView((android.view.View)(__ref._pnl2_lbl3.getObject()),(int) (0),__c.PerYToCurrent((float) (20),ba),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=6029316;
+ //BA.debugLineNum = 6029316;BA.debugLine="pnlholder2.AddView(pnl2_lbl4,0,30%y,10%x,10%y)";
+__ref._pnlholder2.AddView((android.view.View)(__ref._pnl2_lbl4.getObject()),(int) (0),__c.PerYToCurrent((float) (30),ba),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=6029317;
+ //BA.debugLineNum = 6029317;BA.debugLine="pnlholder2.AddView(pnl2_lbl5,0,40%y,10%x,10%y)";
+__ref._pnlholder2.AddView((android.view.View)(__ref._pnl2_lbl5.getObject()),(int) (0),__c.PerYToCurrent((float) (40),ba),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=6029319;
+ //BA.debugLineNum = 6029319;BA.debugLine="pnl2_lbl1.SetBackgroundImage(picture4)";
+__ref._pnl2_lbl1.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._picture4.getObject()));
+RDebugUtils.currentLine=6029320;
+ //BA.debugLineNum = 6029320;BA.debugLine="pnl2_lbl2.SetBackgroundImage(picture3)";
+__ref._pnl2_lbl2.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._picture3.getObject()));
+RDebugUtils.currentLine=6029321;
+ //BA.debugLineNum = 6029321;BA.debugLine="pnl2_lbl3.SetBackgroundImage(picture2)";
+__ref._pnl2_lbl3.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._picture2.getObject()));
+RDebugUtils.currentLine=6029322;
+ //BA.debugLineNum = 6029322;BA.debugLine="pnl2_lbl4.SetBackgroundImage(picture1)";
+__ref._pnl2_lbl4.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._picture1.getObject()));
+RDebugUtils.currentLine=6029323;
+ //BA.debugLineNum = 6029323;BA.debugLine="pnl2_lbl5.SetBackgroundImage(picture5)";
+__ref._pnl2_lbl5.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._picture5.getObject()));
+RDebugUtils.currentLine=6029324;
+ //BA.debugLineNum = 6029324;BA.debugLine="End Sub";
+return "";
+}
+public String  _buildpnlhold3(b4a.example.slotgame __ref) throws Exception{
+__ref = this;
+RDebugUtils.currentModule="slotgame";
+if (Debug.shouldDelegate(ba, "buildpnlhold3"))
+	return (String) Debug.delegate(ba, "buildpnlhold3", null);
+RDebugUtils.currentLine=6094848;
+ //BA.debugLineNum = 6094848;BA.debugLine="Sub BuildPNLHOLD3";
+RDebugUtils.currentLine=6094849;
+ //BA.debugLineNum = 6094849;BA.debugLine="pnlholder3.AddView(pnl3_lbl1,0,0,10%x,10%y)";
+__ref._pnlholder3.AddView((android.view.View)(__ref._pnl3_lbl1.getObject()),(int) (0),(int) (0),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=6094850;
+ //BA.debugLineNum = 6094850;BA.debugLine="pnlholder3.AddView(pnl3_lbl2,0,10%y,10%x,10%y)";
+__ref._pnlholder3.AddView((android.view.View)(__ref._pnl3_lbl2.getObject()),(int) (0),__c.PerYToCurrent((float) (10),ba),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=6094851;
+ //BA.debugLineNum = 6094851;BA.debugLine="pnlholder3.AddView(pnl3_lbl3,0,20%y,10%x,10%y)";
+__ref._pnlholder3.AddView((android.view.View)(__ref._pnl3_lbl3.getObject()),(int) (0),__c.PerYToCurrent((float) (20),ba),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=6094852;
+ //BA.debugLineNum = 6094852;BA.debugLine="pnlholder3.AddView(pnl3_lbl4,0,30%y,10%x,10%y)";
+__ref._pnlholder3.AddView((android.view.View)(__ref._pnl3_lbl4.getObject()),(int) (0),__c.PerYToCurrent((float) (30),ba),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=6094853;
+ //BA.debugLineNum = 6094853;BA.debugLine="pnlholder3.AddView(pnl3_lbl5,0,40%y,10%x,10%y)";
+__ref._pnlholder3.AddView((android.view.View)(__ref._pnl3_lbl5.getObject()),(int) (0),__c.PerYToCurrent((float) (40),ba),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=6094855;
+ //BA.debugLineNum = 6094855;BA.debugLine="pnl3_lbl1.SetBackgroundImage(picture3)";
+__ref._pnl3_lbl1.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._picture3.getObject()));
+RDebugUtils.currentLine=6094856;
+ //BA.debugLineNum = 6094856;BA.debugLine="pnl3_lbl2.SetBackgroundImage(picture2)";
+__ref._pnl3_lbl2.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._picture2.getObject()));
+RDebugUtils.currentLine=6094857;
+ //BA.debugLineNum = 6094857;BA.debugLine="pnl3_lbl3.SetBackgroundImage(picture1)";
+__ref._pnl3_lbl3.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._picture1.getObject()));
+RDebugUtils.currentLine=6094858;
+ //BA.debugLineNum = 6094858;BA.debugLine="pnl3_lbl4.SetBackgroundImage(picture5)";
+__ref._pnl3_lbl4.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._picture5.getObject()));
+RDebugUtils.currentLine=6094859;
+ //BA.debugLineNum = 6094859;BA.debugLine="pnl3_lbl5.SetBackgroundImage(picture4)";
+__ref._pnl3_lbl5.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._picture4.getObject()));
+RDebugUtils.currentLine=6094860;
+ //BA.debugLineNum = 6094860;BA.debugLine="End Sub";
+return "";
+}
+public String  _buildui(b4a.example.slotgame __ref) throws Exception{
+__ref = this;
+RDebugUtils.currentModule="slotgame";
+if (Debug.shouldDelegate(ba, "buildui"))
+	return (String) Debug.delegate(ba, "buildui", null);
+RDebugUtils.currentLine=5832704;
+ //BA.debugLineNum = 5832704;BA.debugLine="Sub BuildUI";
+RDebugUtils.currentLine=5832705;
+ //BA.debugLineNum = 5832705;BA.debugLine="pnlmain.Color = Colors.RGB(77, 148, 255)";
+__ref._pnlmain.setColor(__c.Colors.RGB((int) (77),(int) (148),(int) (255)));
+RDebugUtils.currentLine=5832706;
+ //BA.debugLineNum = 5832706;BA.debugLine="pnlmain.AddView(spinbtn,30%x,60%y,20%x,10%y)";
+__ref._pnlmain.AddView((android.view.View)(__ref._spinbtn.getObject()),__c.PerXToCurrent((float) (30),ba),__c.PerYToCurrent((float) (60),ba),__c.PerXToCurrent((float) (20),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=5832707;
+ //BA.debugLineNum = 5832707;BA.debugLine="pnlmain.AddView(pnlholder1,25%x - 1dip,5%y,10%x,5";
+__ref._pnlmain.AddView((android.view.View)(__ref._pnlholder1.getObject()),(int) (__c.PerXToCurrent((float) (25),ba)-__c.DipToCurrent((int) (1))),__c.PerYToCurrent((float) (5),ba),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (50),ba));
+RDebugUtils.currentLine=5832708;
+ //BA.debugLineNum = 5832708;BA.debugLine="pnlmain.AddView(pnlholder2,35%x,5%y,10%x,50%y)";
+__ref._pnlmain.AddView((android.view.View)(__ref._pnlholder2.getObject()),__c.PerXToCurrent((float) (35),ba),__c.PerYToCurrent((float) (5),ba),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (50),ba));
+RDebugUtils.currentLine=5832709;
+ //BA.debugLineNum = 5832709;BA.debugLine="pnlmain.AddView(pnlholder3,45%x + 1dip,5%y,10%x,5";
+__ref._pnlmain.AddView((android.view.View)(__ref._pnlholder3.getObject()),(int) (__c.PerXToCurrent((float) (45),ba)+__c.DipToCurrent((int) (1))),__c.PerYToCurrent((float) (5),ba),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (50),ba));
+RDebugUtils.currentLine=5832710;
+ //BA.debugLineNum = 5832710;BA.debugLine="pnlmain.AddView(betbtnup,5%x,35%y,15%x,10%y)";
+__ref._pnlmain.AddView((android.view.View)(__ref._betbtnup.getObject()),__c.PerXToCurrent((float) (5),ba),__c.PerYToCurrent((float) (35),ba),__c.PerXToCurrent((float) (15),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=5832711;
+ //BA.debugLineNum = 5832711;BA.debugLine="pnlmain.AddView(betbtndown,5%x,45%y + 2dip,15%x,1";
+__ref._pnlmain.AddView((android.view.View)(__ref._betbtndown.getObject()),__c.PerXToCurrent((float) (5),ba),(int) (__c.PerYToCurrent((float) (45),ba)+__c.DipToCurrent((int) (2))),__c.PerXToCurrent((float) (15),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=5832712;
+ //BA.debugLineNum = 5832712;BA.debugLine="pnlmain.AddView(lblbetshow,5%x,25%y - 2dip,15%x,1";
+__ref._pnlmain.AddView((android.view.View)(__ref._lblbetshow.getObject()),__c.PerXToCurrent((float) (5),ba),(int) (__c.PerYToCurrent((float) (25),ba)-__c.DipToCurrent((int) (2))),__c.PerXToCurrent((float) (15),ba),__c.PerYToCurrent((float) (10),ba));
+RDebugUtils.currentLine=5832713;
+ //BA.debugLineNum = 5832713;BA.debugLine="pnlholder1.Color = Colors.RGB(166, 166, 166)";
+__ref._pnlholder1.setColor(__c.Colors.RGB((int) (166),(int) (166),(int) (166)));
+RDebugUtils.currentLine=5832714;
+ //BA.debugLineNum = 5832714;BA.debugLine="pnlholder2.Color = Colors.RGB(166, 166, 166)";
+__ref._pnlholder2.setColor(__c.Colors.RGB((int) (166),(int) (166),(int) (166)));
+RDebugUtils.currentLine=5832715;
+ //BA.debugLineNum = 5832715;BA.debugLine="pnlholder3.Color = Colors.RGB(166, 166, 166)";
+__ref._pnlholder3.setColor(__c.Colors.RGB((int) (166),(int) (166),(int) (166)));
+RDebugUtils.currentLine=5832716;
+ //BA.debugLineNum = 5832716;BA.debugLine="spinbtn.Text = \"Spin\"";
+__ref._spinbtn.setText(BA.ObjectToCharSequence("Spin"));
+RDebugUtils.currentLine=5832717;
+ //BA.debugLineNum = 5832717;BA.debugLine="spinbtn.TextSize = 20";
+__ref._spinbtn.setTextSize((float) (20));
+RDebugUtils.currentLine=5832718;
+ //BA.debugLineNum = 5832718;BA.debugLine="spinbtn.Color = Colors.RGB(255, 71, 26)";
+__ref._spinbtn.setColor(__c.Colors.RGB((int) (255),(int) (71),(int) (26)));
+RDebugUtils.currentLine=5832719;
+ //BA.debugLineNum = 5832719;BA.debugLine="betbtnup.Color = Colors.LightGray";
+__ref._betbtnup.setColor(__c.Colors.LightGray);
+RDebugUtils.currentLine=5832720;
+ //BA.debugLineNum = 5832720;BA.debugLine="betbtndown.Color = Colors.LightGray";
+__ref._betbtndown.setColor(__c.Colors.LightGray);
+RDebugUtils.currentLine=5832721;
+ //BA.debugLineNum = 5832721;BA.debugLine="betbtnup.Text = \"+\"";
+__ref._betbtnup.setText(BA.ObjectToCharSequence("+"));
+RDebugUtils.currentLine=5832722;
+ //BA.debugLineNum = 5832722;BA.debugLine="betbtndown.Text = \"-\"";
+__ref._betbtndown.setText(BA.ObjectToCharSequence("-"));
+RDebugUtils.currentLine=5832723;
+ //BA.debugLineNum = 5832723;BA.debugLine="betbtnup.TextSize = 30";
+__ref._betbtnup.setTextSize((float) (30));
+RDebugUtils.currentLine=5832724;
+ //BA.debugLineNum = 5832724;BA.debugLine="betbtndown.TextSize = 30";
+__ref._betbtndown.setTextSize((float) (30));
+RDebugUtils.currentLine=5832725;
+ //BA.debugLineNum = 5832725;BA.debugLine="lblbetshow.Color = Colors.White";
+__ref._lblbetshow.setColor(__c.Colors.White);
+RDebugUtils.currentLine=5832726;
+ //BA.debugLineNum = 5832726;BA.debugLine="lblbetshow.Text = bettedmoney";
+__ref._lblbetshow.setText(BA.ObjectToCharSequence(__ref._bettedmoney));
+RDebugUtils.currentLine=5832727;
+ //BA.debugLineNum = 5832727;BA.debugLine="lblbetshow.TextSize = 30";
+__ref._lblbetshow.setTextSize((float) (30));
+RDebugUtils.currentLine=5832728;
+ //BA.debugLineNum = 5832728;BA.debugLine="lblbetshow.TextColor = Colors.Black";
+__ref._lblbetshow.setTextColor(__c.Colors.Black);
+RDebugUtils.currentLine=5832729;
+ //BA.debugLineNum = 5832729;BA.debugLine="lblbetshow.Gravity = Gravity.CENTER";
+__ref._lblbetshow.setGravity(__c.Gravity.CENTER);
+RDebugUtils.currentLine=5832730;
+ //BA.debugLineNum = 5832730;BA.debugLine="Addingitemstomap1";
+__ref._addingitemstomap1(null);
+RDebugUtils.currentLine=5832731;
+ //BA.debugLineNum = 5832731;BA.debugLine="BuildPNLHOLD1";
+__ref._buildpnlhold1(null);
+RDebugUtils.currentLine=5832732;
+ //BA.debugLineNum = 5832732;BA.debugLine="BuildPNLHOLD2";
+__ref._buildpnlhold2(null);
+RDebugUtils.currentLine=5832733;
+ //BA.debugLineNum = 5832733;BA.debugLine="BuildPNLHOLD3";
+__ref._buildpnlhold3(null);
+RDebugUtils.currentLine=5832734;
+ //BA.debugLineNum = 5832734;BA.debugLine="End Sub";
+return "";
+}
+public String  _checkrow(b4a.example.slotgame __ref,int _numrow) throws Exception{
+__ref = this;
+RDebugUtils.currentModule="slotgame";
+if (Debug.shouldDelegate(ba, "checkrow"))
+	return (String) Debug.delegate(ba, "checkrow", new Object[] {_numrow});
+anywheresoftware.b4a.objects.LabelWrapper _lb1 = null;
+anywheresoftware.b4a.objects.LabelWrapper _lb2 = null;
+anywheresoftware.b4a.objects.LabelWrapper _lb3 = null;
+RDebugUtils.currentLine=6356992;
+ //BA.debugLineNum = 6356992;BA.debugLine="Sub CheckRow (numRow As Int)";
+RDebugUtils.currentLine=6356993;
+ //BA.debugLineNum = 6356993;BA.debugLine="Dim lb1, lb2, lb3 As Label";
+_lb1 = new anywheresoftware.b4a.objects.LabelWrapper();
+_lb2 = new anywheresoftware.b4a.objects.LabelWrapper();
+_lb3 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=6356994;
+ //BA.debugLineNum = 6356994;BA.debugLine="lb1 = pnlholder1.GetView(numRow)";
+_lb1.setObject((android.widget.TextView)(__ref._pnlholder1.GetView(_numrow).getObject()));
+RDebugUtils.currentLine=6356995;
+ //BA.debugLineNum = 6356995;BA.debugLine="lb2 = pnlholder2.GetView(numRow)";
+_lb2.setObject((android.widget.TextView)(__ref._pnlholder2.GetView(_numrow).getObject()));
+RDebugUtils.currentLine=6356996;
+ //BA.debugLineNum = 6356996;BA.debugLine="lb3 = pnlholder3.GetView(numRow)";
+_lb3.setObject((android.widget.TextView)(__ref._pnlholder3.GetView(_numrow).getObject()));
+RDebugUtils.currentLine=6356998;
+ //BA.debugLineNum = 6356998;BA.debugLine="Log(\"Pan1 LaB: tag \" & lb1.Tag)";
+__c.Log("Pan1 LaB: tag "+BA.ObjectToString(_lb1.getTag()));
+RDebugUtils.currentLine=6356999;
+ //BA.debugLineNum = 6356999;BA.debugLine="Log(\"Pan2 LaB: tag \" & lb2.Tag)";
+__c.Log("Pan2 LaB: tag "+BA.ObjectToString(_lb2.getTag()));
+RDebugUtils.currentLine=6357000;
+ //BA.debugLineNum = 6357000;BA.debugLine="Log(\"Pan3 LaB: tag \" & lb3.Tag)";
+__c.Log("Pan3 LaB: tag "+BA.ObjectToString(_lb3.getTag()));
+RDebugUtils.currentLine=6357002;
+ //BA.debugLineNum = 6357002;BA.debugLine="If (lb1.Tag = lb2.Tag And lb2.Tag = lb3.Tag) Then";
+if (((_lb1.getTag()).equals(_lb2.getTag()) && (_lb2.getTag()).equals(_lb3.getTag()))) { 
+RDebugUtils.currentLine=6357003;
+ //BA.debugLineNum = 6357003;BA.debugLine="ToastMessageShow(\"JACKPOT!!!\",False)";
+__c.ToastMessageShow(BA.ObjectToCharSequence("JACKPOT!!!"),__c.False);
+RDebugUtils.currentLine=6357004;
+ //BA.debugLineNum = 6357004;BA.debugLine="If bettedmoney <= 5 Then";
+if (__ref._bettedmoney<=5) { 
+RDebugUtils.currentLine=6357005;
+ //BA.debugLineNum = 6357005;BA.debugLine="Jackpot = bettedmoney*70";
+__ref._jackpot = (int) (__ref._bettedmoney*70);
+ };
+RDebugUtils.currentLine=6357008;
+ //BA.debugLineNum = 6357008;BA.debugLine="If bettedmoney > 5 And bettedmoney <= 10 Then";
+if (__ref._bettedmoney>5 && __ref._bettedmoney<=10) { 
+RDebugUtils.currentLine=6357009;
+ //BA.debugLineNum = 6357009;BA.debugLine="Jackpot = (bettedmoney*0.5)*Rnd(1,2) + 100*bett";
+__ref._jackpot = (int) ((__ref._bettedmoney*0.5)*__c.Rnd((int) (1),(int) (2))+100*__ref._bettedmoney);
+ };
+RDebugUtils.currentLine=6357012;
+ //BA.debugLineNum = 6357012;BA.debugLine="If bettedmoney > 10 And bettedmoney <= 15 Then";
+if (__ref._bettedmoney>10 && __ref._bettedmoney<=15) { 
+RDebugUtils.currentLine=6357013;
+ //BA.debugLineNum = 6357013;BA.debugLine="Jackpot = (bettedmoney*Rnd(1,4))*100";
+__ref._jackpot = (int) ((__ref._bettedmoney*__c.Rnd((int) (1),(int) (4)))*100);
+ };
+RDebugUtils.currentLine=6357016;
+ //BA.debugLineNum = 6357016;BA.debugLine="If bettedmoney > 15 Then";
+if (__ref._bettedmoney>15) { 
+RDebugUtils.currentLine=6357017;
+ //BA.debugLineNum = 6357017;BA.debugLine="Jackpot = Rnd(1,3)*1000*bettedmoney";
+__ref._jackpot = (int) (__c.Rnd((int) (1),(int) (3))*1000*__ref._bettedmoney);
+ };
+RDebugUtils.currentLine=6357021;
+ //BA.debugLineNum = 6357021;BA.debugLine="Main.currentuser.money = Main.currentuser.money";
+_main._currentuser.money = _main._currentuser.money+__ref._jackpot;
+RDebugUtils.currentLine=6357022;
+ //BA.debugLineNum = 6357022;BA.debugLine="Main.database.ExecNonQuery(\"UPDATE  Users SET Mo";
+_main._database.ExecNonQuery("UPDATE  Users SET Money = '"+BA.NumberToString(_main._currentuser.money)+"' WHERE Username = '"+_main._currentuser.name+"'");
+RDebugUtils.currentLine=6357023;
+ //BA.debugLineNum = 6357023;BA.debugLine="CallSub(Main,\"AccMoney\")";
+__c.CallSubDebug(ba,(Object)(_main.getObject()),"AccMoney");
+ };
+RDebugUtils.currentLine=6357027;
+ //BA.debugLineNum = 6357027;BA.debugLine="End Sub";
+return "";
+}
+public String  _class_globals(b4a.example.slotgame __ref) throws Exception{
+__ref = this;
+RDebugUtils.currentModule="slotgame";
+RDebugUtils.currentLine=5701632;
+ //BA.debugLineNum = 5701632;BA.debugLine="Sub Class_Globals";
+RDebugUtils.currentLine=5701633;
+ //BA.debugLineNum = 5701633;BA.debugLine="Dim pnlmain As Panel";
+_pnlmain = new anywheresoftware.b4a.objects.PanelWrapper();
+RDebugUtils.currentLine=5701634;
+ //BA.debugLineNum = 5701634;BA.debugLine="Dim spinbtn As Button";
+_spinbtn = new anywheresoftware.b4a.objects.ButtonWrapper();
+RDebugUtils.currentLine=5701635;
+ //BA.debugLineNum = 5701635;BA.debugLine="Dim betbtnup As Button";
+_betbtnup = new anywheresoftware.b4a.objects.ButtonWrapper();
+RDebugUtils.currentLine=5701636;
+ //BA.debugLineNum = 5701636;BA.debugLine="Dim betbtndown As Button";
+_betbtndown = new anywheresoftware.b4a.objects.ButtonWrapper();
+RDebugUtils.currentLine=5701637;
+ //BA.debugLineNum = 5701637;BA.debugLine="Dim lblbetshow As Label";
+_lblbetshow = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701638;
+ //BA.debugLineNum = 5701638;BA.debugLine="Dim bettedmoney As Int = 1";
+_bettedmoney = (int) (1);
+RDebugUtils.currentLine=5701639;
+ //BA.debugLineNum = 5701639;BA.debugLine="Dim Jackpot As Int";
+_jackpot = 0;
+RDebugUtils.currentLine=5701641;
+ //BA.debugLineNum = 5701641;BA.debugLine="Dim pnlholder1 As Panel";
+_pnlholder1 = new anywheresoftware.b4a.objects.PanelWrapper();
+RDebugUtils.currentLine=5701642;
+ //BA.debugLineNum = 5701642;BA.debugLine="Dim pnlholder2 As Panel";
+_pnlholder2 = new anywheresoftware.b4a.objects.PanelWrapper();
+RDebugUtils.currentLine=5701643;
+ //BA.debugLineNum = 5701643;BA.debugLine="Dim pnlholder3 As Panel";
+_pnlholder3 = new anywheresoftware.b4a.objects.PanelWrapper();
+RDebugUtils.currentLine=5701645;
+ //BA.debugLineNum = 5701645;BA.debugLine="Dim pnl1_lbl1 As Label";
+_pnl1_lbl1 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701646;
+ //BA.debugLineNum = 5701646;BA.debugLine="Dim pnl1_lbl2 As Label";
+_pnl1_lbl2 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701647;
+ //BA.debugLineNum = 5701647;BA.debugLine="Dim pnl1_lbl3 As Label";
+_pnl1_lbl3 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701648;
+ //BA.debugLineNum = 5701648;BA.debugLine="Dim pnl1_lbl4 As Label";
+_pnl1_lbl4 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701649;
+ //BA.debugLineNum = 5701649;BA.debugLine="Dim pnl1_lbl5 As Label";
+_pnl1_lbl5 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701651;
+ //BA.debugLineNum = 5701651;BA.debugLine="Dim pnl2_lbl1 As Label";
+_pnl2_lbl1 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701652;
+ //BA.debugLineNum = 5701652;BA.debugLine="Dim pnl2_lbl2 As Label";
+_pnl2_lbl2 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701653;
+ //BA.debugLineNum = 5701653;BA.debugLine="Dim pnl2_lbl3 As Label";
+_pnl2_lbl3 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701654;
+ //BA.debugLineNum = 5701654;BA.debugLine="Dim pnl2_lbl4 As Label";
+_pnl2_lbl4 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701655;
+ //BA.debugLineNum = 5701655;BA.debugLine="Dim pnl2_lbl5 As Label";
+_pnl2_lbl5 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701657;
+ //BA.debugLineNum = 5701657;BA.debugLine="Dim pnl3_lbl1 As Label";
+_pnl3_lbl1 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701658;
+ //BA.debugLineNum = 5701658;BA.debugLine="Dim pnl3_lbl2 As Label";
+_pnl3_lbl2 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701659;
+ //BA.debugLineNum = 5701659;BA.debugLine="Dim pnl3_lbl3 As Label";
+_pnl3_lbl3 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701660;
+ //BA.debugLineNum = 5701660;BA.debugLine="Dim pnl3_lbl4 As Label";
+_pnl3_lbl4 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701661;
+ //BA.debugLineNum = 5701661;BA.debugLine="Dim pnl3_lbl5 As Label";
+_pnl3_lbl5 = new anywheresoftware.b4a.objects.LabelWrapper();
+RDebugUtils.currentLine=5701663;
+ //BA.debugLineNum = 5701663;BA.debugLine="Dim asd() As Int";
+_asd = new int[(int) (0)];
+;
+RDebugUtils.currentLine=5701665;
+ //BA.debugLineNum = 5701665;BA.debugLine="Dim picture1 As Bitmap =  LoadBitmapSample(File.D";
+_picture1 = new anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper();
+_picture1 = __c.LoadBitmapSample(__c.File.getDirAssets(),"cherry.png",__c.DipToCurrent((int) (32)),__c.DipToCurrent((int) (32)));
+RDebugUtils.currentLine=5701666;
+ //BA.debugLineNum = 5701666;BA.debugLine="Dim picture2 As Bitmap =  LoadBitmapSample(File.D";
+_picture2 = new anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper();
+_picture2 = __c.LoadBitmapSample(__c.File.getDirAssets(),"Watermelon.png",__c.DipToCurrent((int) (32)),__c.DipToCurrent((int) (32)));
+RDebugUtils.currentLine=5701667;
+ //BA.debugLineNum = 5701667;BA.debugLine="Dim picture3 As Bitmap =  LoadBitmapSample(File.D";
+_picture3 = new anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper();
+_picture3 = __c.LoadBitmapSample(__c.File.getDirAssets(),"bell.png",__c.DipToCurrent((int) (32)),__c.DipToCurrent((int) (32)));
+RDebugUtils.currentLine=5701668;
+ //BA.debugLineNum = 5701668;BA.debugLine="Dim picture4 As Bitmap =  LoadBitmapSample(File.D";
+_picture4 = new anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper();
+_picture4 = __c.LoadBitmapSample(__c.File.getDirAssets(),"bar.png",__c.DipToCurrent((int) (32)),__c.DipToCurrent((int) (32)));
+RDebugUtils.currentLine=5701669;
+ //BA.debugLineNum = 5701669;BA.debugLine="Dim picture5 As Bitmap =  LoadBitmapSample(File.D";
+_picture5 = new anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper();
+_picture5 = __c.LoadBitmapSample(__c.File.getDirAssets(),"casino_7.png",__c.DipToCurrent((int) (32)),__c.DipToCurrent((int) (32)));
+RDebugUtils.currentLine=5701671;
+ //BA.debugLineNum = 5701671;BA.debugLine="Dim SpinTimer As Timer";
+_spintimer = new anywheresoftware.b4a.objects.Timer();
+RDebugUtils.currentLine=5701672;
+ //BA.debugLineNum = 5701672;BA.debugLine="Dim SpinTimerAnimationA As Timer";
+_spintimeranimationa = new anywheresoftware.b4a.objects.Timer();
+RDebugUtils.currentLine=5701673;
+ //BA.debugLineNum = 5701673;BA.debugLine="Dim SpinTimerAnimationB As Timer";
+_spintimeranimationb = new anywheresoftware.b4a.objects.Timer();
+RDebugUtils.currentLine=5701674;
+ //BA.debugLineNum = 5701674;BA.debugLine="Dim SpinTimerAnimationC As Timer";
+_spintimeranimationc = new anywheresoftware.b4a.objects.Timer();
+RDebugUtils.currentLine=5701675;
+ //BA.debugLineNum = 5701675;BA.debugLine="Dim picmap As Map";
+_picmap = new anywheresoftware.b4a.objects.collections.Map();
+RDebugUtils.currentLine=5701676;
+ //BA.debugLineNum = 5701676;BA.debugLine="Dim lastPickedInt As Int";
+_lastpickedint = 0;
+RDebugUtils.currentLine=5701677;
+ //BA.debugLineNum = 5701677;BA.debugLine="End Sub";
+return "";
+}
+public anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper  _pickrandomimage(b4a.example.slotgame __ref) throws Exception{
+__ref = this;
+RDebugUtils.currentModule="slotgame";
+if (Debug.shouldDelegate(ba, "pickrandomimage"))
+	return (anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper) Debug.delegate(ba, "pickrandomimage", null);
+RDebugUtils.currentLine=6488064;
+ //BA.debugLineNum = 6488064;BA.debugLine="Sub PickRandomImage As Bitmap";
+RDebugUtils.currentLine=6488065;
+ //BA.debugLineNum = 6488065;BA.debugLine="lastPickedInt = Rnd(1,5)";
+__ref._lastpickedint = __c.Rnd((int) (1),(int) (5));
+RDebugUtils.currentLine=6488066;
+ //BA.debugLineNum = 6488066;BA.debugLine="Return picmap.GetValueAt(lastPickedInt)";
+if (true) return (anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper(), (android.graphics.Bitmap)(__ref._picmap.GetValueAt(__ref._lastpickedint)));
+RDebugUtils.currentLine=6488067;
+ //BA.debugLineNum = 6488067;BA.debugLine="End Sub";
+return null;
+}
+public String  _setimageandposition(b4a.example.slotgame __ref,anywheresoftware.b4a.objects.LabelWrapper _l) throws Exception{
+__ref = this;
+RDebugUtils.currentModule="slotgame";
+if (Debug.shouldDelegate(ba, "setimageandposition"))
+	return (String) Debug.delegate(ba, "setimageandposition", new Object[] {_l});
+RDebugUtils.currentLine=6422528;
+ //BA.debugLineNum = 6422528;BA.debugLine="Sub SetImageandPosition (l As Label)";
+RDebugUtils.currentLine=6422529;
+ //BA.debugLineNum = 6422529;BA.debugLine="l.SetBackgroundImage(PickRandomImage)";
+_l.SetBackgroundImageNew((android.graphics.Bitmap)(__ref._pickrandomimage(null).getObject()));
+RDebugUtils.currentLine=6422530;
+ //BA.debugLineNum = 6422530;BA.debugLine="l.Tag = lastPickedInt";
+_l.setTag((Object)(__ref._lastpickedint));
+RDebugUtils.currentLine=6422532;
+ //BA.debugLineNum = 6422532;BA.debugLine="End Sub";
+return "";
+}
+public String  _spina_tick(b4a.example.slotgame __ref) throws Exception{
+__ref = this;
+RDebugUtils.currentModule="slotgame";
+if (Debug.shouldDelegate(ba, "spina_tick"))
+	return (String) Debug.delegate(ba, "spina_tick", null);
+RDebugUtils.currentLine=6225920;
+ //BA.debugLineNum = 6225920;BA.debugLine="Sub SpinA_Tick";
+RDebugUtils.currentLine=6225921;
+ //BA.debugLineNum = 6225921;BA.debugLine="SpinPanel(pnlholder1)";
+__ref._spinpanel(null,__ref._pnlholder1);
+RDebugUtils.currentLine=6225922;
+ //BA.debugLineNum = 6225922;BA.debugLine="SpinPanel(pnlholder2)";
+__ref._spinpanel(null,__ref._pnlholder2);
+RDebugUtils.currentLine=6225923;
+ //BA.debugLineNum = 6225923;BA.debugLine="SpinPanel(pnlholder3)";
+__ref._spinpanel(null,__ref._pnlholder3);
+RDebugUtils.currentLine=6225924;
+ //BA.debugLineNum = 6225924;BA.debugLine="End Sub";
+return "";
+}
+public String  _spinpanel(b4a.example.slotgame __ref,anywheresoftware.b4a.objects.PanelWrapper _p) throws Exception{
+__ref = this;
+RDebugUtils.currentModule="slotgame";
+if (Debug.shouldDelegate(ba, "spinpanel"))
+	return (String) Debug.delegate(ba, "spinpanel", new Object[] {_p});
+anywheresoftware.b4a.objects.LabelWrapper _v = null;
+RDebugUtils.currentLine=6291456;
+ //BA.debugLineNum = 6291456;BA.debugLine="Sub SpinPanel (p As Panel)";
+RDebugUtils.currentLine=6291457;
+ //BA.debugLineNum = 6291457;BA.debugLine="For Each v As Label In p.GetAllViewsRecursive";
+_v = new anywheresoftware.b4a.objects.LabelWrapper();
+{
+final anywheresoftware.b4a.BA.IterableList group1 = _p.GetAllViewsRecursive();
+final int groupLen1 = group1.getSize()
+;int index1 = 0;
+;
+for (; index1 < groupLen1;index1++){
+_v.setObject((android.widget.TextView)(group1.Get(index1)));
+RDebugUtils.currentLine=6291458;
+ //BA.debugLineNum = 6291458;BA.debugLine="SetImageandPosition (v)";
+__ref._setimageandposition(null,_v);
+ }
+};
+RDebugUtils.currentLine=6291460;
+ //BA.debugLineNum = 6291460;BA.debugLine="End Sub";
+return "";
+}
+public String  _spinaction_click(b4a.example.slotgame __ref) throws Exception{
+__ref = this;
+RDebugUtils.currentModule="slotgame";
+if (Debug.shouldDelegate(ba, "spinaction_click"))
+	return (String) Debug.delegate(ba, "spinaction_click", null);
+RDebugUtils.currentLine=6160384;
+ //BA.debugLineNum = 6160384;BA.debugLine="Sub spinaction_Click";
+RDebugUtils.currentLine=6160385;
+ //BA.debugLineNum = 6160385;BA.debugLine="If Main.currentuser.money < bettedmoney Then";
+if (_main._currentuser.money<__ref._bettedmoney) { 
+RDebugUtils.currentLine=6160386;
+ //BA.debugLineNum = 6160386;BA.debugLine="ToastMessageShow(\"Not enought money!\",False)";
+__c.ToastMessageShow(BA.ObjectToCharSequence("Not enought money!"),__c.False);
+ }else {
+RDebugUtils.currentLine=6160390;
+ //BA.debugLineNum = 6160390;BA.debugLine="Main.currentuser.money = Main.currentuser.money";
+_main._currentuser.money = _main._currentuser.money-__ref._bettedmoney;
+RDebugUtils.currentLine=6160391;
+ //BA.debugLineNum = 6160391;BA.debugLine="Main.database.ExecNonQuery(\"UPDATE  Users SET Mo";
+_main._database.ExecNonQuery("UPDATE  Users SET Money = '"+BA.NumberToString(_main._currentuser.money)+"' WHERE Username = '"+_main._currentuser.name+"'");
+RDebugUtils.currentLine=6160392;
+ //BA.debugLineNum = 6160392;BA.debugLine="CallSub(Main,\"AccMoney\")";
+__c.CallSubDebug(ba,(Object)(_main.getObject()),"AccMoney");
+RDebugUtils.currentLine=6160397;
+ //BA.debugLineNum = 6160397;BA.debugLine="SpinTimer.Enabled = True";
+__ref._spintimer.setEnabled(__c.True);
+RDebugUtils.currentLine=6160398;
+ //BA.debugLineNum = 6160398;BA.debugLine="SpinTimerAnimationA.Enabled = True";
+__ref._spintimeranimationa.setEnabled(__c.True);
+ };
+RDebugUtils.currentLine=6160400;
+ //BA.debugLineNum = 6160400;BA.debugLine="End Sub";
+return "";
+}
+public String  _spint_tick(b4a.example.slotgame __ref) throws Exception{
+__ref = this;
+RDebugUtils.currentModule="slotgame";
+if (Debug.shouldDelegate(ba, "spint_tick"))
+	return (String) Debug.delegate(ba, "spint_tick", null);
+RDebugUtils.currentLine=6553600;
+ //BA.debugLineNum = 6553600;BA.debugLine="Sub SpinT_Tick";
+RDebugUtils.currentLine=6553601;
+ //BA.debugLineNum = 6553601;BA.debugLine="SpinTimer.Enabled = False";
+__ref._spintimer.setEnabled(__c.False);
+RDebugUtils.currentLine=6553602;
+ //BA.debugLineNum = 6553602;BA.debugLine="SpinTimerAnimationA.Enabled = False";
+__ref._spintimeranimationa.setEnabled(__c.False);
+RDebugUtils.currentLine=6553603;
+ //BA.debugLineNum = 6553603;BA.debugLine="If bettedmoney <= 5 Then";
+if (__ref._bettedmoney<=5) { 
+RDebugUtils.currentLine=6553604;
+ //BA.debugLineNum = 6553604;BA.debugLine="CheckRow(0)";
+__ref._checkrow(null,(int) (0));
+RDebugUtils.currentLine=6553605;
+ //BA.debugLineNum = 6553605;BA.debugLine="CheckRow(1)";
+__ref._checkrow(null,(int) (1));
+RDebugUtils.currentLine=6553606;
+ //BA.debugLineNum = 6553606;BA.debugLine="CheckRow(2)";
+__ref._checkrow(null,(int) (2));
+RDebugUtils.currentLine=6553607;
+ //BA.debugLineNum = 6553607;BA.debugLine="CheckRow(3)";
+__ref._checkrow(null,(int) (3));
+RDebugUtils.currentLine=6553608;
+ //BA.debugLineNum = 6553608;BA.debugLine="CheckRow(4)";
+__ref._checkrow(null,(int) (4));
+ };
+RDebugUtils.currentLine=6553611;
+ //BA.debugLineNum = 6553611;BA.debugLine="If bettedmoney > 5 And bettedmoney <= 10 Then";
+if (__ref._bettedmoney>5 && __ref._bettedmoney<=10) { 
+RDebugUtils.currentLine=6553612;
+ //BA.debugLineNum = 6553612;BA.debugLine="CheckRow(0)";
+__ref._checkrow(null,(int) (0));
+RDebugUtils.currentLine=6553613;
+ //BA.debugLineNum = 6553613;BA.debugLine="CheckRow(1)";
+__ref._checkrow(null,(int) (1));
+RDebugUtils.currentLine=6553614;
+ //BA.debugLineNum = 6553614;BA.debugLine="CheckRow(2)";
+__ref._checkrow(null,(int) (2));
+RDebugUtils.currentLine=6553615;
+ //BA.debugLineNum = 6553615;BA.debugLine="CheckRow(3)";
+__ref._checkrow(null,(int) (3));
+ };
+RDebugUtils.currentLine=6553617;
+ //BA.debugLineNum = 6553617;BA.debugLine="If bettedmoney > 10 And bettedmoney <= 15 Then";
+if (__ref._bettedmoney>10 && __ref._bettedmoney<=15) { 
+RDebugUtils.currentLine=6553618;
+ //BA.debugLineNum = 6553618;BA.debugLine="CheckRow(0)";
+__ref._checkrow(null,(int) (0));
+RDebugUtils.currentLine=6553619;
+ //BA.debugLineNum = 6553619;BA.debugLine="CheckRow(1)";
+__ref._checkrow(null,(int) (1));
+RDebugUtils.currentLine=6553620;
+ //BA.debugLineNum = 6553620;BA.debugLine="CheckRow(2)";
+__ref._checkrow(null,(int) (2));
+ };
+RDebugUtils.currentLine=6553622;
+ //BA.debugLineNum = 6553622;BA.debugLine="If bettedmoney > 15 Then";
+if (__ref._bettedmoney>15) { 
+RDebugUtils.currentLine=6553623;
+ //BA.debugLineNum = 6553623;BA.debugLine="CheckRow(2)";
+__ref._checkrow(null,(int) (2));
+ };
+RDebugUtils.currentLine=6553625;
+ //BA.debugLineNum = 6553625;BA.debugLine="End Sub";
+return "";
+}
+}

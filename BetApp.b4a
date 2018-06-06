@@ -1,0 +1,138 @@
+﻿Build1=Default,b4a.VankoBet
+File1=avatar.png
+File2=avatar2.png
+File3=bar.png
+File4=bell.png
+File5=casino_7.png
+File6=cherry.png
+File7=watermelon.png
+FileGroup1=Default Group
+FileGroup2=Default Group
+FileGroup3=Default Group
+FileGroup4=Default Group
+FileGroup5=Default Group
+FileGroup6=Default Group
+FileGroup7=Default Group
+Group=Default Group
+IconFile=
+Library1=core
+Library2=reflection
+Library3=sql
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="26"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~
+Module1=DB
+Module2=Register
+Module3=Login
+Module4=Types
+Module5=appmaininterface
+Module6=Starter
+Module7=HelperFunctions
+Module8=AdminActions
+Module9=UserActions
+NumberOfFiles=7
+NumberOfLibraries=3
+NumberOfModules=9
+Version=8
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: Football Bet
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: landscape
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen:True
+	#IncludeTitle:False
+#End Region
+
+Sub Process_Globals
+
+End Sub
+
+Sub Globals
+	
+	Dim registerscreen As Register
+	Public loginscr As Login
+	Dim appmainscreen As appmaininterface
+	
+
+	Dim IsFirstTime As Boolean = True
+'	Dim bet_admin As AdminActions
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	
+	DB.DATABASEinit
+	If File.Exists(File.DirDefaultExternal,"UserAndBetsDatabase.db") Then
+		Try
+			Dim cursor As Cursor
+			cursor = DB.database.ExecQuery("SELECT Username FROM Users")
+			If cursor.RowCount > 0 Then
+				Log("Super1")
+			End If
+			cursor.Close
+			Dim cursor1 As Cursor
+			cursor1 = DB.database.ExecQuery("SELECT ID FROM Bets")
+			If cursor1.RowCount > 0 Then
+				Log("Super2")
+			End If
+			cursor1.Close
+		Catch
+			DB.TablesCreate
+			DB.CreateAdmin
+			Log(LastException)
+		End Try
+	End If
+	registerscreen.Initialize
+	loginscr.Initialize
+	appmainscreen.Initialize
+	Activity.AddView(registerscreen.AsView,0,0,100%x,100%y)
+	Activity.AddView(loginscr.AsView,0,0,100%x,100%y)
+	loginscr.AsView.Visible = False
+	Activity.AddView(appmainscreen.AsView,0,0,100%x,100%y)
+	appmainscreen.AsView.Visible = False
+	
+End Sub
+
+Public Sub BuildInterface
+	If IsFirstTime = True Then
+		appmainscreen.Build_UI
+		IsFirstTime = False
+	End If
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+Sub ShowHideLoginScreen
+	If 	loginscr.AsView.Visible = False Then
+		loginscr.AsView.Visible = True
+	Else
+		loginscr.AsView.Visible = False
+	End If
+End Sub
+
+Sub ShowHideMainUI
+	If appmainscreen.AsView.Visible = False Then
+		appmainscreen.AsView.Visible = True
+	Else
+		appmainscreen.AsView.Visible = False
+	End If
+End Sub
+
+Public Sub Get_loginscrn As Login
+	Return loginscr
+End Sub
+
+Public Sub DepositWithdrawMoney(money As Double)
+	appmainscreen.accountbalance.Text = money
+End Sub
+
+
