@@ -21,6 +21,7 @@ Library3=sql
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="26"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~
 Module1=DB
 Module10=HelperFunctions
+Module11=BetPopUp
 Module2=Register
 Module3=Login
 Module4=appmaininterface
@@ -31,7 +32,7 @@ Module8=Types
 Module9=Starter
 NumberOfFiles=7
 NumberOfLibraries=3
-NumberOfModules=10
+NumberOfModules=11
 Version=8
 @EndOfDesignText@
 #Region  Project Attributes 
@@ -58,7 +59,8 @@ Sub Globals
 	Public loginscr As Login
 	Dim appmainscreen As appmaininterface
 	Dim rankupdate As Promote
-
+	Dim bets_popup As BetPopUp
+	
 	Dim IsFirstTime As Boolean = True
 '	Dim bet_admin As AdminActions
 End Sub
@@ -149,5 +151,21 @@ Public Sub ShowRankUpdate
 		rankupdate.background.Visible = True
 	Else
 		rankupdate.background.Visible = False
+	End If
+End Sub
+
+Public Sub ShowBetsPopUp
+	If bets_popup.background.Visible = False Then
+		bets_popup.background.Visible = True
+	Else
+		bets_popup.background.Visible = False
+	End If
+End Sub
+
+Public Sub BuildPopUpScreen
+	If bets_popup.IsInitialized = False Then
+		bets_popup.Initialize
+		Activity.AddView(bets_popup.background,0,0,100%x,100%y)
+		bets_popup.background.Visible = False
 	End If
 End Sub
