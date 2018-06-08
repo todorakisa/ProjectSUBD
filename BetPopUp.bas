@@ -37,5 +37,23 @@ Sub background_Click As Boolean
 End Sub
 
 Sub btn1_Click
-'	func here
+If entersum.Text = "" Then
+	ToastMessageShow("No sum entered",False)
+	CallSub(Main,"ShowBetsPopUp")
+Else
+	DB.database.Initialize(File.DirDefaultExternal,"UserAndBetsDatabase.db",True)
+	Types.currentuser.money = Types.currentuser.money - entersum.Text
+	Dim adminfunds As Double = (5/100)*entersum.Text
+	Dim cursortmp As Cursor
+	cursortmp = DB.database.ExecQuery("SELECT  Money FROM Users WHERE Username = 'admin'")
+	For i = 0 To cursortmp.RowCount - 1
+		cursortmp.Position = i
+		adminfunds = cursortmp.GetDouble("Money") + adminfunds
+	Next
+	cursortmp.Close
+'	func for user
+'	func for admin money
+	DB.database.Close
+	CallSub(Main,"ShowBetsPopUp")
+End If
 End Sub
