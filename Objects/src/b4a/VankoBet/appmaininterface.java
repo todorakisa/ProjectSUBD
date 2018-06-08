@@ -38,10 +38,10 @@ public anywheresoftware.b4a.objects.LabelWrapper _showrank = null;
 public b4a.VankoBet.useractions _actionsforuser = null;
 public b4a.VankoBet.adminactions _actionsforadmin = null;
 public b4a.VankoBet.main _main = null;
+public b4a.VankoBet.db _db = null;
 public b4a.VankoBet.types _types = null;
 public b4a.VankoBet.starter _starter = null;
 public b4a.VankoBet.helperfunctions _helperfunctions = null;
-public b4a.VankoBet.db _db = null;
 public anywheresoftware.b4a.objects.ConcreteViewWrapper  _asview() throws Exception{
  //BA.debugLineNum = 29;BA.debugLine="Sub AsView As View";
  //BA.debugLineNum = 30;BA.debugLine="Return pnlmainscreen";

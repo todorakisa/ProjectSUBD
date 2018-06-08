@@ -333,10 +333,10 @@ public b4a.VankoBet.betpopup _bets_popup = null;
 public b4a.VankoBet.promote _rankupdate = null;
 public b4a.VankoBet.slotgame _slotgame1 = null;
 public static boolean _isfirsttime = false;
+public b4a.VankoBet.db _db = null;
 public b4a.VankoBet.types _types = null;
 public b4a.VankoBet.starter _starter = null;
 public b4a.VankoBet.helperfunctions _helperfunctions = null;
-public b4a.VankoBet.db _db = null;
 
 public static boolean isAnyActivityVisible() {
     boolean vis = false;
@@ -348,8 +348,8 @@ anywheresoftware.b4a.sql.SQL.CursorWrapper _cursor1 = null;
  //BA.debugLineNum = 31;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
  //BA.debugLineNum = 33;BA.debugLine="DB.DATABASEinit";
 mostCurrent._db._databaseinit(mostCurrent.activityBA);
- //BA.debugLineNum = 34;BA.debugLine="If File.Exists(File.DirDefaultExternal,\"UserAndBe";
-if (anywheresoftware.b4a.keywords.Common.File.Exists(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"UserAndBetsDatabase.db")) { 
+ //BA.debugLineNum = 34;BA.debugLine="If File.Exists(File.DirDefaultExternal,\"AppDB.db\"";
+if (anywheresoftware.b4a.keywords.Common.File.Exists(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"AppDB.db")) { 
  //BA.debugLineNum = 35;BA.debugLine="Try";
 try { //BA.debugLineNum = 36;BA.debugLine="Dim cursor As Cursor";
 _cursor = new anywheresoftware.b4a.sql.SQL.CursorWrapper();
@@ -492,10 +492,10 @@ public static void initializeProcessGlobals() {
 	    main.processGlobalsRun = true;
 		try {
 		        main._process_globals();
+db._process_globals();
 types._process_globals();
 starter._process_globals();
 helperfunctions._process_globals();
-db._process_globals();
 		
         } catch (Exception e) {
 			throw new RuntimeException(e);

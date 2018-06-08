@@ -121,9 +121,9 @@ public class starter extends  android.app.Service{
 		return null;
 	}public anywheresoftware.b4a.keywords.Common __c = null;
 public b4a.VankoBet.main _main = null;
+public b4a.VankoBet.db _db = null;
 public b4a.VankoBet.types _types = null;
 public b4a.VankoBet.helperfunctions _helperfunctions = null;
-public b4a.VankoBet.db _db = null;
 public static boolean  _application_error(anywheresoftware.b4a.objects.B4AException _error,String _stacktrace) throws Exception{
  //BA.debugLineNum = 28;BA.debugLine="Sub Application_Error (Error As Exception, StackTr";
  //BA.debugLineNum = 29;BA.debugLine="Return True";

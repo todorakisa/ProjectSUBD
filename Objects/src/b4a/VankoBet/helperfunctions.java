@@ -13,9 +13,9 @@ public static Object getObject() {
  public anywheresoftware.b4a.keywords.Common __c = null;
 public static String _shareprice = "";
 public b4a.VankoBet.main _main = null;
+public b4a.VankoBet.db _db = null;
 public b4a.VankoBet.types _types = null;
 public b4a.VankoBet.starter _starter = null;
-public b4a.VankoBet.db _db = null;
 public static String  _apply_viewstyle(anywheresoftware.b4a.BA _ba,anywheresoftware.b4a.objects.ConcreteViewWrapper _control,int _textcolor,int _colora,int _colorb,int _colorpresseda,int _colorpressedb,int _colordisableda,int _colordisabledb,int _cornerround) throws Exception{
 anywheresoftware.b4a.objects.ButtonWrapper _btn = null;
 anywheresoftware.b4a.objects.EditTextWrapper _txt = null;

@@ -30,10 +30,10 @@ public anywheresoftware.b4a.objects.EditTextWrapper _enterusername = null;
 public anywheresoftware.b4a.objects.EditTextWrapper _enterrank = null;
 public anywheresoftware.b4a.objects.ButtonWrapper _submit = null;
 public b4a.VankoBet.main _main = null;
+public b4a.VankoBet.db _db = null;
 public b4a.VankoBet.types _types = null;
 public b4a.VankoBet.starter _starter = null;
 public b4a.VankoBet.helperfunctions _helperfunctions = null;
-public b4a.VankoBet.db _db = null;
 public boolean  _background_click() throws Exception{
  //BA.debugLineNum = 32;BA.debugLine="Sub background_Click As Boolean";
  //BA.debugLineNum = 33;BA.debugLine="Return True";

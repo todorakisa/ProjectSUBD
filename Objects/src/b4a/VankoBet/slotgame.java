@@ -59,10 +59,10 @@ public anywheresoftware.b4a.objects.Timer _spintimeranimationa = null;
 public anywheresoftware.b4a.objects.collections.Map _picmap = null;
 public int _lastpickedint = 0;
 public b4a.VankoBet.main _main = null;
+public b4a.VankoBet.db _db = null;
 public b4a.VankoBet.types _types = null;
 public b4a.VankoBet.starter _starter = null;
 public b4a.VankoBet.helperfunctions _helperfunctions = null;
-public b4a.VankoBet.db _db = null;
 public String  _addingitemstomap1() throws Exception{
  //BA.debugLineNum = 119;BA.debugLine="Sub Addingitemstomap1";
  //BA.debugLineNum = 120;BA.debugLine="picmap.Put(\"1\",picture1)";

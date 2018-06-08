@@ -29,10 +29,10 @@ public anywheresoftware.b4a.objects.PanelWrapper _mainscreen = null;
 public anywheresoftware.b4a.objects.EditTextWrapper _entersum = null;
 public anywheresoftware.b4a.objects.ButtonWrapper _submit = null;
 public b4a.VankoBet.main _main = null;
+public b4a.VankoBet.db _db = null;
 public b4a.VankoBet.types _types = null;
 public b4a.VankoBet.starter _starter = null;
 public b4a.VankoBet.helperfunctions _helperfunctions = null;
-public b4a.VankoBet.db _db = null;
 public boolean  _background_click() throws Exception{
  //BA.debugLineNum = 29;BA.debugLine="Sub background_Click As Boolean";
  //BA.debugLineNum = 30;BA.debugLine="Return True";
@@ -53,7 +53,7 @@ __c.ToastMessageShow(BA.ObjectToCharSequence("No sum entered"),__c.False);
 __c.CallSubNew(ba,(Object)(_main.getObject()),"ShowBetsPopUp");
  }else {
  //BA.debugLineNum = 38;BA.debugLine="DB.database.Initialize(File.DirDefaultExternal,\"";
-_db._database.Initialize(__c.File.getDirDefaultExternal(),"UserAndBetsDatabase.db",__c.True);
+_db._database.Initialize(__c.File.getDirDefaultExternal(),"AppDB.db",__c.True);
  //BA.debugLineNum = 39;BA.debugLine="Types.currentuser.money = Types.currentuser.mone";
 _types._currentuser.money = _types._currentuser.money-(double)(Double.parseDouble(_entersum.getText()));
  //BA.debugLineNum = 40;BA.debugLine="Dim adminfunds As Double = (5/100)*entersum.Text";

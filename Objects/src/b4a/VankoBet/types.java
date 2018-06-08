@@ -13,9 +13,9 @@ public static Object getObject() {
  public anywheresoftware.b4a.keywords.Common __c = null;
 public static b4a.VankoBet.types._user _currentuser = null;
 public b4a.VankoBet.main _main = null;
+public b4a.VankoBet.db _db = null;
 public b4a.VankoBet.starter _starter = null;
 public b4a.VankoBet.helperfunctions _helperfunctions = null;
-public b4a.VankoBet.db _db = null;
 public static class _user{
 public boolean IsInitialized;
 public String name;

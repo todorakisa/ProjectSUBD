@@ -20,19 +20,20 @@ Library2=reflection
 Library3=sql
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="26"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~
 Module1=DB
-Module10=Starter
-Module11=HelperFunctions
+Module10=Types
+Module11=Starter
+Module12=HelperFunctions
 Module2=Register
 Module3=Login
-Module4=appmaininterface
-Module5=UserActions
-Module6=AdminActions
-Module7=Promote
-Module8=BetPopUp
-Module9=Types
+Module4=SlotGame
+Module5=BetPopUp
+Module6=appmaininterface
+Module7=AdminActions
+Module8=Promote
+Module9=UserActions
 NumberOfFiles=7
 NumberOfLibraries=3
-NumberOfModules=11
+NumberOfModules=12
 Version=8
 @EndOfDesignText@
 #Region  Project Attributes 
@@ -58,17 +59,17 @@ Sub Globals
 	Dim registerscreen As Register
 	Public loginscr As Login
 	Dim appmainscreen As appmaininterface
-	Dim rankupdate As Promote
 	Dim bets_popup As BetPopUp
-	
+	Dim rankupdate As Promote
+	Dim slotgame1 As SlotGame
 	Dim IsFirstTime As Boolean = True
-'	Dim bet_admin As AdminActions
+
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
 	
 	DB.DATABASEinit
-	If File.Exists(File.DirDefaultExternal,"UserAndBetsDatabase.db") Then
+	If File.Exists(File.DirDefaultExternal,"AppDB.db") Then
 		Try
 			Dim cursor As Cursor
 			cursor = DB.database.ExecQuery("SELECT Username FROM Users")
@@ -138,11 +139,11 @@ Public Sub DepositWithdrawMoney(money As Double)
 	appmainscreen.accountbalance.Text = money
 End Sub
 
-Public Sub BuildPromoteBar
-	If rankupdate.IsInitialized = False Then
-		rankupdate.Initialize
-		Activity.AddView(rankupdate.background,0,0,100%x,100%y)
-		rankupdate.background.Visible = False
+Public Sub ShowBetsPopUp
+	If bets_popup.background.Visible = False Then
+	bets_popup.background.Visible = True
+	Else
+		bets_popup.background.Visible = False
 	End If
 End Sub
 
@@ -154,18 +155,33 @@ Public Sub ShowRankUpdate
 	End If
 End Sub
 
-Public Sub ShowBetsPopUp
-	If bets_popup.background.Visible = False Then
-		bets_popup.background.Visible = True
-	Else
-		bets_popup.background.Visible = False
+Public Sub BuildPromoteBar
+	If rankupdate.IsInitialized = False Then
+		rankupdate.Initialize
+		Activity.AddView(rankupdate.background,0,0,100%x,100%y)
+		rankupdate.background.Visible = False
 	End If
 End Sub
 
 Public Sub BuildPopUpScreen
 	If bets_popup.IsInitialized = False Then
-		bets_popup.Initialize
-		Activity.AddView(bets_popup.background,0,0,100%x,100%y)
+	bets_popup.Initialize
+	Activity.AddView(bets_popup.background,0,0,100%x,100%y)
 		bets_popup.background.Visible = False
 	End If
+End Sub
+
+Public Sub ShowHideSlotGame
+	If slotgame1.IsInitialized = False Then
+	slotgame1.Initialize
+	Activity.AddView(slotgame1.pnlmain,20%x - 5dip,0%y,82%x,100%y)
+	slotgame1.pnlmain.Visible = False
+	End If
+	
+	If slotgame1.pnlmain.Visible = False Then
+		slotgame1.pnlmain.Visible = True
+	Else
+		slotgame1.pnlmain.Visible = False	
+	End If
+	
 End Sub

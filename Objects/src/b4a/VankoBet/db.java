@@ -18,8 +18,8 @@ public b4a.VankoBet.starter _starter = null;
 public b4a.VankoBet.helperfunctions _helperfunctions = null;
 public static String  _createadmin(anywheresoftware.b4a.BA _ba) throws Exception{
  //BA.debugLineNum = 25;BA.debugLine="Public Sub CreateAdmin";
- //BA.debugLineNum = 26;BA.debugLine="database.Initialize(File.DirDefaultExternal,\"User";
-_database.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"UserAndBetsDatabase.db",anywheresoftware.b4a.keywords.Common.True);
+ //BA.debugLineNum = 26;BA.debugLine="database.Initialize(File.DirDefaultExternal,\"AppD";
+_database.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"AppDB.db",anywheresoftware.b4a.keywords.Common.True);
  //BA.debugLineNum = 27;BA.debugLine="database.ExecNonQuery(\"INSERT INTO Users (Usernam";
 _database.ExecNonQuery("INSERT INTO Users (Username,Password,Money,Rank) VALUES ('admin','admin','0.00','Admin')");
  //BA.debugLineNum = 28;BA.debugLine="database.Close";
@@ -29,8 +29,8 @@ return "";
 }
 public static String  _createbet(anywheresoftware.b4a.BA _ba,String _teama,String _teamacoef,String _teamb,String _teambcoef,String _matchinfo) throws Exception{
  //BA.debugLineNum = 62;BA.debugLine="Public Sub CreateBet(teamA As String,teamAcoef As";
- //BA.debugLineNum = 63;BA.debugLine="database.Initialize(File.DirDefaultExternal,\"User";
-_database.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"UserAndBetsDatabase.db",anywheresoftware.b4a.keywords.Common.True);
+ //BA.debugLineNum = 63;BA.debugLine="database.Initialize(File.DirDefaultExternal,\"AppD";
+_database.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"AppDB.db",anywheresoftware.b4a.keywords.Common.True);
  //BA.debugLineNum = 64;BA.debugLine="database.ExecNonQuery(\"INSERT INTO Bets (TeamA,Te";
 _database.ExecNonQuery("INSERT INTO Bets (TeamA,TeamAcoef,TeamB,TeamBcoef,MatchInfo) VALUES ('"+_teama+"','"+_teamacoef+"','"+_teamb+"','"+_teambcoef+"','"+_matchinfo+"')");
  //BA.debugLineNum = 65;BA.debugLine="database.Close";
@@ -40,8 +40,8 @@ return "";
 }
 public static String  _databasecreateuser(anywheresoftware.b4a.BA _ba,String _username,String _password) throws Exception{
  //BA.debugLineNum = 19;BA.debugLine="Public Sub DataBaseCreateUser(username As String,p";
- //BA.debugLineNum = 20;BA.debugLine="database.Initialize(File.DirDefaultExternal,\"User";
-_database.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"UserAndBetsDatabase.db",anywheresoftware.b4a.keywords.Common.True);
+ //BA.debugLineNum = 20;BA.debugLine="database.Initialize(File.DirDefaultExternal,\"AppD";
+_database.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"AppDB.db",anywheresoftware.b4a.keywords.Common.True);
  //BA.debugLineNum = 21;BA.debugLine="database.ExecNonQuery(\"INSERT INTO Users (Usernam";
 _database.ExecNonQuery("INSERT INTO Users (Username,Password,Money,Rank) VALUES ('"+_username+"','"+_password+"','0.00','user')");
  //BA.debugLineNum = 22;BA.debugLine="database.Close";
@@ -51,8 +51,8 @@ return "";
 }
 public static String  _databaseinit(anywheresoftware.b4a.BA _ba) throws Exception{
  //BA.debugLineNum = 10;BA.debugLine="Public Sub DATABASEinit";
- //BA.debugLineNum = 11;BA.debugLine="database.Initialize(File.DirDefaultExternal,\"User";
-_database.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"UserAndBetsDatabase.db",anywheresoftware.b4a.keywords.Common.True);
+ //BA.debugLineNum = 11;BA.debugLine="database.Initialize(File.DirDefaultExternal,\"AppD";
+_database.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"AppDB.db",anywheresoftware.b4a.keywords.Common.True);
  //BA.debugLineNum = 12;BA.debugLine="End Sub";
 return "";
 }
@@ -74,8 +74,8 @@ return "";
 }
 public static String  _usersetmoney(anywheresoftware.b4a.BA _ba,double _money,String _username) throws Exception{
  //BA.debugLineNum = 56;BA.debugLine="Public Sub UserSetMoney(money As Double,username A";
- //BA.debugLineNum = 57;BA.debugLine="database.Initialize(File.DirDefaultExternal,\"User";
-_database.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"UserAndBetsDatabase.db",anywheresoftware.b4a.keywords.Common.True);
+ //BA.debugLineNum = 57;BA.debugLine="database.Initialize(File.DirDefaultExternal,\"AppD";
+_database.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"AppDB.db",anywheresoftware.b4a.keywords.Common.True);
  //BA.debugLineNum = 58;BA.debugLine="database.ExecNonQuery(\"UPDATE  Users SET Money =";
 _database.ExecNonQuery("UPDATE  Users SET Money = '"+BA.NumberToString(_money)+"' WHERE Username = '"+_username+"'");
  //BA.debugLineNum = 59;BA.debugLine="database.Close";
@@ -85,8 +85,8 @@ return "";
 }
 public static String  _usersetrank(anywheresoftware.b4a.BA _ba,String _rank,String _username) throws Exception{
  //BA.debugLineNum = 68;BA.debugLine="Public Sub UserSetRank(rank As String,username As";
- //BA.debugLineNum = 69;BA.debugLine="database.Initialize(File.DirDefaultExternal,\"User";
-_database.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"UserAndBetsDatabase.db",anywheresoftware.b4a.keywords.Common.True);
+ //BA.debugLineNum = 69;BA.debugLine="database.Initialize(File.DirDefaultExternal,\"AppD";
+_database.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"AppDB.db",anywheresoftware.b4a.keywords.Common.True);
  //BA.debugLineNum = 70;BA.debugLine="database.ExecNonQuery(\"UPDATE  Users SET Rank = '";
 _database.ExecNonQuery("UPDATE  Users SET Rank = '"+_rank+"' WHERE Username = '"+_username+"'");
  //BA.debugLineNum = 71;BA.debugLine="database.Close";
@@ -98,8 +98,8 @@ public static String  _validateuser(anywheresoftware.b4a.BA _ba,String _username
 anywheresoftware.b4a.sql.SQL.CursorWrapper _cursor = null;
 int _i = 0;
  //BA.debugLineNum = 31;BA.debugLine="Public Sub ValidateUser(username As String,passwor";
- //BA.debugLineNum = 32;BA.debugLine="database.Initialize(File.DirDefaultExternal,\"User";
-_database.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"UserAndBetsDatabase.db",anywheresoftware.b4a.keywords.Common.True);
+ //BA.debugLineNum = 32;BA.debugLine="database.Initialize(File.DirDefaultExternal,\"AppD";
+_database.Initialize(anywheresoftware.b4a.keywords.Common.File.getDirDefaultExternal(),"AppDB.db",anywheresoftware.b4a.keywords.Common.True);
  //BA.debugLineNum = 33;BA.debugLine="Dim cursor As Cursor";
 _cursor = new anywheresoftware.b4a.sql.SQL.CursorWrapper();
  //BA.debugLineNum = 34;BA.debugLine="cursor = database.ExecQuery(\"SELECT Username, Pas";

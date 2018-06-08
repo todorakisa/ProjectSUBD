@@ -46,10 +46,10 @@ public int _i = 0;
 public anywheresoftware.b4a.objects.collections.List _btnlista = null;
 public anywheresoftware.b4a.objects.collections.List _btnlistb = null;
 public b4a.VankoBet.main _main = null;
+public b4a.VankoBet.db _db = null;
 public b4a.VankoBet.types _types = null;
 public b4a.VankoBet.starter _starter = null;
 public b4a.VankoBet.helperfunctions _helperfunctions = null;
-public b4a.VankoBet.db _db = null;
 public String  _activebets_content() throws Exception{
  //BA.debugLineNum = 56;BA.debugLine="Sub ActiveBets_Content";
  //BA.debugLineNum = 57;BA.debugLine="pnl_bets.Color = Colors.White";
@@ -123,8 +123,8 @@ public String  _activebetscreate() throws Exception{
 anywheresoftware.b4a.sql.SQL.CursorWrapper _cursor = null;
 int _t = 0;
  //BA.debugLineNum = 97;BA.debugLine="Sub ActiveBetsCreate";
- //BA.debugLineNum = 98;BA.debugLine="DB.database.Initialize(File.DirDefaultExternal,\"U";
-_db._database.Initialize(__c.File.getDirDefaultExternal(),"UserAndBetsDatabase.db",__c.True);
+ //BA.debugLineNum = 98;BA.debugLine="DB.database.Initialize(File.DirDefaultExternal,\"A";
+_db._database.Initialize(__c.File.getDirDefaultExternal(),"AppDB.db",__c.True);
  //BA.debugLineNum = 99;BA.debugLine="Dim cursor As Cursor";
 _cursor = new anywheresoftware.b4a.sql.SQL.CursorWrapper();
  //BA.debugLineNum = 100;BA.debugLine="cursor = DB.database.ExecQuery(\"SELECT ID,TeamA,T";
@@ -181,53 +181,53 @@ _contenthold.AddView((android.view.View)(_betteama.getObject()),__c.PerXToCurren
 _contenthold.AddView((android.view.View)(_betteamb.getObject()),__c.PerXToCurrent((float) (50),ba),(int) (0),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (20),ba));
  //BA.debugLineNum = 125;BA.debugLine="contenthold.AddView(lblmatchinfo,30%x,0,50%x,20%";
 _contenthold.AddView((android.view.View)(_lblmatchinfo.getObject()),__c.PerXToCurrent((float) (30),ba),(int) (0),__c.PerXToCurrent((float) (50),ba),__c.PerYToCurrent((float) (20),ba));
- //BA.debugLineNum = 127;BA.debugLine="ActiveBets_Content";
+ //BA.debugLineNum = 126;BA.debugLine="ActiveBets_Content";
 _activebets_content();
  }
 };
- //BA.debugLineNum = 129;BA.debugLine="cursor.Close";
+ //BA.debugLineNum = 128;BA.debugLine="cursor.Close";
 _cursor.Close();
- //BA.debugLineNum = 130;BA.debugLine="DB.database.Close";
+ //BA.debugLineNum = 129;BA.debugLine="DB.database.Close";
 _db._database.Close();
- //BA.debugLineNum = 131;BA.debugLine="End Sub";
+ //BA.debugLineNum = 130;BA.debugLine="End Sub";
 return "";
 }
 public String  _btnbeta_click() throws Exception{
 anywheresoftware.b4a.objects.ButtonWrapper _btn = null;
 anywheresoftware.b4a.objects.LabelWrapper _templbl = null;
- //BA.debugLineNum = 133;BA.debugLine="Sub btnbetA_Click";
- //BA.debugLineNum = 134;BA.debugLine="Dim btn As Button = Sender";
+ //BA.debugLineNum = 132;BA.debugLine="Sub btnbetA_Click";
+ //BA.debugLineNum = 133;BA.debugLine="Dim btn As Button = Sender";
 _btn = new anywheresoftware.b4a.objects.ButtonWrapper();
 _btn.setObject((android.widget.Button)(__c.Sender(ba)));
- //BA.debugLineNum = 135;BA.debugLine="Dim templbl As Label = btnlistA.Get(btn.Tag)";
+ //BA.debugLineNum = 134;BA.debugLine="Dim templbl As Label = btnlistA.Get(btn.Tag)";
 _templbl = new anywheresoftware.b4a.objects.LabelWrapper();
 _templbl.setObject((android.widget.TextView)(_btnlista.Get((int)(BA.ObjectToNumber(_btn.getTag())))));
- //BA.debugLineNum = 136;BA.debugLine="ToastMessageShow( Types.currentuser.name & \" curr";
+ //BA.debugLineNum = 135;BA.debugLine="ToastMessageShow( Types.currentuser.name & \" curr";
 __c.ToastMessageShow(BA.ObjectToCharSequence(_types._currentuser.name+" currently betting on "+_templbl.getText()),__c.False);
- //BA.debugLineNum = 137;BA.debugLine="CallSub(Main,\"BuildPopUpScreen\")";
+ //BA.debugLineNum = 136;BA.debugLine="CallSub(Main,\"BuildPopUpScreen\")";
 __c.CallSubNew(ba,(Object)(_main.getObject()),"BuildPopUpScreen");
- //BA.debugLineNum = 138;BA.debugLine="CallSub(Main,\"ShowBetsPopUp\")";
+ //BA.debugLineNum = 137;BA.debugLine="CallSub(Main,\"ShowBetsPopUp\")";
 __c.CallSubNew(ba,(Object)(_main.getObject()),"ShowBetsPopUp");
- //BA.debugLineNum = 139;BA.debugLine="End Sub";
+ //BA.debugLineNum = 138;BA.debugLine="End Sub";
 return "";
 }
 public String  _btnbetb_click() throws Exception{
 anywheresoftware.b4a.objects.ButtonWrapper _btn = null;
 anywheresoftware.b4a.objects.LabelWrapper _templbl = null;
- //BA.debugLineNum = 140;BA.debugLine="Sub btnbetB_Click";
- //BA.debugLineNum = 141;BA.debugLine="Dim btn As Button = Sender";
+ //BA.debugLineNum = 139;BA.debugLine="Sub btnbetB_Click";
+ //BA.debugLineNum = 140;BA.debugLine="Dim btn As Button = Sender";
 _btn = new anywheresoftware.b4a.objects.ButtonWrapper();
 _btn.setObject((android.widget.Button)(__c.Sender(ba)));
- //BA.debugLineNum = 142;BA.debugLine="Dim templbl As Label = btnlistB.Get(btn.Tag)";
+ //BA.debugLineNum = 141;BA.debugLine="Dim templbl As Label = btnlistB.Get(btn.Tag)";
 _templbl = new anywheresoftware.b4a.objects.LabelWrapper();
 _templbl.setObject((android.widget.TextView)(_btnlistb.Get((int)(BA.ObjectToNumber(_btn.getTag())))));
- //BA.debugLineNum = 143;BA.debugLine="ToastMessageShow( Types.currentuser.name & \" curr";
+ //BA.debugLineNum = 142;BA.debugLine="ToastMessageShow( Types.currentuser.name & \" curr";
 __c.ToastMessageShow(BA.ObjectToCharSequence(_types._currentuser.name+" currently betting on "+_templbl.getText()),__c.False);
- //BA.debugLineNum = 144;BA.debugLine="CallSub(Main,\"BuildPopUpScreen\")";
+ //BA.debugLineNum = 143;BA.debugLine="CallSub(Main,\"BuildPopUpScreen\")";
 __c.CallSubNew(ba,(Object)(_main.getObject()),"BuildPopUpScreen");
- //BA.debugLineNum = 145;BA.debugLine="CallSub(Main,\"ShowBetsPopUp\")";
+ //BA.debugLineNum = 144;BA.debugLine="CallSub(Main,\"ShowBetsPopUp\")";
 __c.CallSubNew(ba,(Object)(_main.getObject()),"ShowBetsPopUp");
- //BA.debugLineNum = 146;BA.debugLine="End Sub";
+ //BA.debugLineNum = 145;BA.debugLine="End Sub";
 return "";
 }
 public String  _build_ui() throws Exception{
@@ -283,20 +283,20 @@ _btnlistb = new anywheresoftware.b4a.objects.collections.List();
 return "";
 }
 public String  _deposit_click() throws Exception{
- //BA.debugLineNum = 162;BA.debugLine="Sub deposit_Click";
- //BA.debugLineNum = 163;BA.debugLine="If textfield.Text = \"\" Then";
+ //BA.debugLineNum = 161;BA.debugLine="Sub deposit_Click";
+ //BA.debugLineNum = 162;BA.debugLine="If textfield.Text = \"\" Then";
 if ((_textfield.getText()).equals("")) { 
- //BA.debugLineNum = 164;BA.debugLine="ToastMessageShow(\"Nothing entered\",False)";
+ //BA.debugLineNum = 163;BA.debugLine="ToastMessageShow(\"Nothing entered\",False)";
 __c.ToastMessageShow(BA.ObjectToCharSequence("Nothing entered"),__c.False);
  }else {
- //BA.debugLineNum = 167;BA.debugLine="Types.currentuser.money = Types.currentuser.mone";
+ //BA.debugLineNum = 166;BA.debugLine="Types.currentuser.money = Types.currentuser.mone";
 _types._currentuser.money = _types._currentuser.money+(double)(Double.parseDouble(_textfield.getText()));
- //BA.debugLineNum = 168;BA.debugLine="DB.UserSetMoney(Types.currentuser.money,Types.cu";
+ //BA.debugLineNum = 167;BA.debugLine="DB.UserSetMoney(Types.currentuser.money,Types.cu";
 _db._usersetmoney(ba,_types._currentuser.money,_types._currentuser.name);
- //BA.debugLineNum = 169;BA.debugLine="CallSub2(Main,\"DepositWithdrawMoney\",Types.curre";
+ //BA.debugLineNum = 168;BA.debugLine="CallSub2(Main,\"DepositWithdrawMoney\",Types.curre";
 __c.CallSubNew2(ba,(Object)(_main.getObject()),"DepositWithdrawMoney",(Object)(_types._currentuser.money));
  };
- //BA.debugLineNum = 171;BA.debugLine="End Sub";
+ //BA.debugLineNum = 170;BA.debugLine="End Sub";
 return "";
 }
 public String  _initialize(anywheresoftware.b4a.BA _ba) throws Exception{
@@ -331,28 +331,28 @@ _boobuild = __c.True;
 return "";
 }
 public String  _moneymangmt_contents() throws Exception{
- //BA.debugLineNum = 148;BA.debugLine="Sub Moneymangmt_Contents";
- //BA.debugLineNum = 149;BA.debugLine="pnl_finances.Color = Colors.ARGB(150,0,0,0)";
+ //BA.debugLineNum = 147;BA.debugLine="Sub Moneymangmt_Contents";
+ //BA.debugLineNum = 148;BA.debugLine="pnl_finances.Color = Colors.ARGB(150,0,0,0)";
 _pnl_finances.setColor(__c.Colors.ARGB((int) (150),(int) (0),(int) (0),(int) (0)));
- //BA.debugLineNum = 150;BA.debugLine="textfield.InputType = textfield.INPUT_TYPE_NUMBER";
+ //BA.debugLineNum = 149;BA.debugLine="textfield.InputType = textfield.INPUT_TYPE_NUMBER";
 _textfield.setInputType(_textfield.INPUT_TYPE_NUMBERS);
- //BA.debugLineNum = 151;BA.debugLine="Deposit.Text = \"Deposit\"";
+ //BA.debugLineNum = 150;BA.debugLine="Deposit.Text = \"Deposit\"";
 _deposit.setText(BA.ObjectToCharSequence("Deposit"));
- //BA.debugLineNum = 152;BA.debugLine="Withdraw.Text = \"Withdraw\"";
+ //BA.debugLineNum = 151;BA.debugLine="Withdraw.Text = \"Withdraw\"";
 _withdraw.setText(BA.ObjectToCharSequence("Withdraw"));
- //BA.debugLineNum = 153;BA.debugLine="HelperFunctions.Apply_ViewStyle(Withdraw,Colors.B";
+ //BA.debugLineNum = 152;BA.debugLine="HelperFunctions.Apply_ViewStyle(Withdraw,Colors.B";
 _helperfunctions._apply_viewstyle(ba,(anywheresoftware.b4a.objects.ConcreteViewWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ConcreteViewWrapper(), (android.view.View)(_withdraw.getObject())),__c.Colors.Black,__c.Colors.White,__c.Colors.White,__c.Colors.LightGray,__c.Colors.LightGray,__c.Colors.DarkGray,__c.Colors.DarkGray,(int) (20));
- //BA.debugLineNum = 154;BA.debugLine="HelperFunctions.Apply_ViewStyle(Deposit,Colors.Bl";
+ //BA.debugLineNum = 153;BA.debugLine="HelperFunctions.Apply_ViewStyle(Deposit,Colors.Bl";
 _helperfunctions._apply_viewstyle(ba,(anywheresoftware.b4a.objects.ConcreteViewWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ConcreteViewWrapper(), (android.view.View)(_deposit.getObject())),__c.Colors.Black,__c.Colors.White,__c.Colors.White,__c.Colors.LightGray,__c.Colors.LightGray,__c.Colors.DarkGray,__c.Colors.DarkGray,(int) (20));
- //BA.debugLineNum = 155;BA.debugLine="HelperFunctions.Apply_ViewStyle(textfield,Colors.";
+ //BA.debugLineNum = 154;BA.debugLine="HelperFunctions.Apply_ViewStyle(textfield,Colors.";
 _helperfunctions._apply_viewstyle(ba,(anywheresoftware.b4a.objects.ConcreteViewWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ConcreteViewWrapper(), (android.view.View)(_textfield.getObject())),__c.Colors.Black,__c.Colors.White,__c.Colors.White,__c.Colors.LightGray,__c.Colors.LightGray,__c.Colors.DarkGray,__c.Colors.DarkGray,(int) (20));
- //BA.debugLineNum = 157;BA.debugLine="pnl_finances.AddView(textfield,10%x,20%y,60%x,15%";
+ //BA.debugLineNum = 156;BA.debugLine="pnl_finances.AddView(textfield,10%x,20%y,60%x,15%";
 _pnl_finances.AddView((android.view.View)(_textfield.getObject()),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (20),ba),__c.PerXToCurrent((float) (60),ba),__c.PerYToCurrent((float) (15),ba));
- //BA.debugLineNum = 158;BA.debugLine="pnl_finances.AddView(Deposit,10%x,40%y,30%x - 2di";
+ //BA.debugLineNum = 157;BA.debugLine="pnl_finances.AddView(Deposit,10%x,40%y,30%x - 2di";
 _pnl_finances.AddView((android.view.View)(_deposit.getObject()),__c.PerXToCurrent((float) (10),ba),__c.PerYToCurrent((float) (40),ba),(int) (__c.PerXToCurrent((float) (30),ba)-__c.DipToCurrent((int) (2))),__c.PerYToCurrent((float) (15),ba));
- //BA.debugLineNum = 159;BA.debugLine="pnl_finances.AddView(Withdraw,40%x + 2dip,40%y,30";
+ //BA.debugLineNum = 158;BA.debugLine="pnl_finances.AddView(Withdraw,40%x + 2dip,40%y,30";
 _pnl_finances.AddView((android.view.View)(_withdraw.getObject()),(int) (__c.PerXToCurrent((float) (40),ba)+__c.DipToCurrent((int) (2))),__c.PerYToCurrent((float) (40),ba),__c.PerXToCurrent((float) (30),ba),__c.PerYToCurrent((float) (15),ba));
- //BA.debugLineNum = 160;BA.debugLine="End Sub";
+ //BA.debugLineNum = 159;BA.debugLine="End Sub";
 return "";
 }
 public String  _showcurrentbets() throws Exception{
@@ -368,25 +368,25 @@ _activebets_content();
 return "";
 }
 public String  _withdraw_click() throws Exception{
- //BA.debugLineNum = 173;BA.debugLine="Sub withdraw_Click";
- //BA.debugLineNum = 174;BA.debugLine="If textfield.Text = \"\" Then";
+ //BA.debugLineNum = 172;BA.debugLine="Sub withdraw_Click";
+ //BA.debugLineNum = 173;BA.debugLine="If textfield.Text = \"\" Then";
 if ((_textfield.getText()).equals("")) { 
- //BA.debugLineNum = 175;BA.debugLine="ToastMessageShow(\"Nothing entered\",False)";
+ //BA.debugLineNum = 174;BA.debugLine="ToastMessageShow(\"Nothing entered\",False)";
 __c.ToastMessageShow(BA.ObjectToCharSequence("Nothing entered"),__c.False);
  }else {
- //BA.debugLineNum = 177;BA.debugLine="Types.currentuser.money = Types.currentuser.mone";
+ //BA.debugLineNum = 176;BA.debugLine="Types.currentuser.money = Types.currentuser.mone";
 _types._currentuser.money = _types._currentuser.money-(double)(Double.parseDouble(_textfield.getText()));
- //BA.debugLineNum = 178;BA.debugLine="If Types.currentuser.money < 0 Then";
+ //BA.debugLineNum = 177;BA.debugLine="If Types.currentuser.money < 0 Then";
 if (_types._currentuser.money<0) { 
- //BA.debugLineNum = 179;BA.debugLine="Types.currentuser.money = 0";
+ //BA.debugLineNum = 178;BA.debugLine="Types.currentuser.money = 0";
 _types._currentuser.money = 0;
  };
- //BA.debugLineNum = 181;BA.debugLine="DB.UserSetMoney(Types.currentuser.money,Types.cu";
+ //BA.debugLineNum = 180;BA.debugLine="DB.UserSetMoney(Types.currentuser.money,Types.cu";
 _db._usersetmoney(ba,_types._currentuser.money,_types._currentuser.name);
- //BA.debugLineNum = 182;BA.debugLine="CallSub2(Main,\"DepositWithdrawMoney\",Types.curre";
+ //BA.debugLineNum = 181;BA.debugLine="CallSub2(Main,\"DepositWithdrawMoney\",Types.curre";
 __c.CallSubNew2(ba,(Object)(_main.getObject()),"DepositWithdrawMoney",(Object)(_types._currentuser.money));
  };
- //BA.debugLineNum = 184;BA.debugLine="End Sub";
+ //BA.debugLineNum = 183;BA.debugLine="End Sub";
 return "";
 }
 public Object callSub(String sub, Object sender, Object[] args) throws Exception {

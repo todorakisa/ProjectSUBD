@@ -82,7 +82,7 @@ Sub Build_UI
 	pnlleftmenu.AddView(btn_logout,pnlleftmenu.Left + 1%x,(slotmachine.Top+slotmachine.Height) + 5%y,pnlleftmenu.Width - 2%x,slotmachine.Height)
 End Sub
 Sub slotz_Click
-	
+	CallSub(Main,"ShowHideSlotGame")
 End Sub
 
 Sub logout_Click

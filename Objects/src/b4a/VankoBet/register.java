@@ -30,10 +30,10 @@ public anywheresoftware.b4a.objects.EditTextWrapper _enterpassword = null;
 public anywheresoftware.b4a.objects.ButtonWrapper _btnregister = null;
 public anywheresoftware.b4a.objects.ButtonWrapper _btnalreadyreg = null;
 public b4a.VankoBet.main _main = null;
+public b4a.VankoBet.db _db = null;
 public b4a.VankoBet.types _types = null;
 public b4a.VankoBet.starter _starter = null;
 public b4a.VankoBet.helperfunctions _helperfunctions = null;
-public b4a.VankoBet.db _db = null;
 public String  _alrdyreg_click() throws Exception{
  //BA.debugLineNum = 70;BA.debugLine="Sub alrdyreg_Click";
  //BA.debugLineNum = 71;BA.debugLine="CallSub(Main,\"ShowHideLoginScreen\")";

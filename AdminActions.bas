@@ -89,7 +89,7 @@ Sub CurrentUsers
 	lbl_showusers.TextColor = Colors.Black
 	lbl_showusers.Text = "USERNAME/PASSWORD/MONEY/RANK/" & CRLF
 	Dim cursor1 As Cursor
-	DB.database.Initialize(File.DirDefaultExternal,"UserAndBetsDatabase.db",True)
+	DB.database.Initialize(File.DirDefaultExternal,"AppDB.db",True)
 	cursor1 = DB.database.ExecQuery("SELECT Username, Password, Money, Rank FROM Users")
 	For k = 0 To cursor1.RowCount - 1
 		cursor1.Position = k
@@ -172,7 +172,7 @@ End Sub
 
 Sub ActiveBetsCreate
 
-	DB.database.Initialize(File.DirDefaultExternal,"UserAndBetsDatabase.db",True)
+	DB.database.Initialize(File.DirDefaultExternal,"AppDB.db",True)
 	Dim cursor As Cursor
 	cursor = DB.database.ExecQuery("SELECT ID,TeamA,TeamAcoef, TeamB, TeamBcoef,MatchInfo FROM Bets")
 
@@ -187,6 +187,7 @@ Sub ActiveBetsCreate
 		betteamA.Initialize("btn1")
 		betteamB.Initialize("btn2")
 				
+	
 		teamAname.Text = cursor.GetString("TeamA")
 		teamBname.Text = cursor.GetString("TeamB")
 		lblteamAcoef.Text = cursor.GetString("TeamAcoef")

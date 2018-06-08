@@ -101,7 +101,7 @@ Sub ActiveBets_Content
 End Sub
 
 Sub ActiveBetsCreate
-	DB.database.Initialize(File.DirDefaultExternal,"UserAndBetsDatabase.db",True)
+	DB.database.Initialize(File.DirDefaultExternal,"AppDB.db",True)
 	Dim cursor As Cursor
 	cursor = DB.database.ExecQuery("SELECT ID,TeamA,TeamAcoef, TeamB, TeamBcoef,MatchInfo FROM Bets")
 	For t = 0 To cursor.RowCount - 1
@@ -129,7 +129,6 @@ Sub ActiveBetsCreate
 		contenthold.AddView(betteamA,20%x,0,10%x,20%y)
 		contenthold.AddView(betteamB,50%x,0,10%x,20%y)
 		contenthold.AddView(lblmatchinfo,30%x,0,50%x,20%y)
-		
 		ActiveBets_Content
 	Next
 	cursor.Close
@@ -143,7 +142,6 @@ Sub btnbetA_Click
 	CallSub(Main,"BuildPopUpScreen")
 	CallSub(Main,"ShowBetsPopUp")
 End Sub
-
 Sub btnbetB_Click
 	Dim btn As Button = Sender
 	Dim templbl As Label = btnlistB.Get(btn.Tag)
