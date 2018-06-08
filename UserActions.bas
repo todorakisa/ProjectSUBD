@@ -153,13 +153,39 @@ Sub btnbetB_Click
 End Sub
 
 Sub Moneymangmt_Contents
+	pnl_finances.Color = Colors.ARGB(150,0,0,0)
+	textfield.InputType = textfield.INPUT_TYPE_NUMBERS
+	Deposit.Text = "Deposit"
+	Withdraw.Text = "Withdraw"
+	HelperFunctions.Apply_ViewStyle(Withdraw,Colors.Black,Colors.White,Colors.White,Colors.LightGray,Colors.LightGray,Colors.DarkGray,Colors.DarkGray,20)
+	HelperFunctions.Apply_ViewStyle(Deposit,Colors.Black,Colors.White,Colors.White,Colors.LightGray,Colors.LightGray,Colors.DarkGray,Colors.DarkGray,20)
+	HelperFunctions.Apply_ViewStyle(textfield,Colors.Black,Colors.White,Colors.White,Colors.LightGray,Colors.LightGray,Colors.DarkGray,Colors.DarkGray,20)
 	
+	pnl_finances.AddView(textfield,10%x,20%y,60%x,15%y)
+	pnl_finances.AddView(Deposit,10%x,40%y,30%x - 2dip,15%y)
+	pnl_finances.AddView(Withdraw,40%x + 2dip,40%y,30%x,15%y)
 End Sub
 
 Sub deposit_Click
-
+	If textfield.Text = "" Then
+		ToastMessageShow("Nothing entered",False)
+	Else
+'		Public tmp As login = CallSub(Main,"Get_loginscrn")
+		Types.currentuser.money = Types.currentuser.money + textfield.Text
+		DB.UserSetMoney(Types.currentuser.money,Types.currentuser.name)
+		CallSub2(Main,"DepositWithdrawMoney",Types.currentuser.money)
+	End If
 End Sub
 
 Sub withdraw_Click
-
+	If textfield.Text = "" Then
+		ToastMessageShow("Nothing entered",False)
+	Else
+		Types.currentuser.money = Types.currentuser.money - textfield.Text
+		If Types.currentuser.money < 0 Then
+			Types.currentuser.money = 0
+		End If
+		DB.UserSetMoney(Types.currentuser.money,Types.currentuser.name)
+		CallSub2(Main,"DepositWithdrawMoney",Types.currentuser.money)
+	End If
 End Sub

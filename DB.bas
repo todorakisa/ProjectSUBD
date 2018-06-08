@@ -70,3 +70,9 @@ Public Sub UserSetRank(rank As String,username As String)
 	database.ExecNonQuery("UPDATE  Users SET Rank = '" & rank &"' WHERE Username = '"& username &"'")
 	database.Close
 End Sub
+
+Public Sub UserSetMoney(money As Double,username As String)
+	database.Initialize(File.DirDefaultExternal,"UserAndBetsDatabase.db",True)
+	database.ExecNonQuery("UPDATE  Users SET Money = '" & money &"' WHERE Username = '"& username &"'")
+	database.Close
+End Sub

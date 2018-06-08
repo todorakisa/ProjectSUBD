@@ -51,8 +51,8 @@ Else
 		adminfunds = cursortmp.GetDouble("Money") + adminfunds
 	Next
 	cursortmp.Close
-'	func for user
-'	func for admin money
+	DB.UserSetMoney(Types.currentuser.money,Types.currentuser.name )
+	DB.UserSetMoney(adminfunds,"admin")
 	DB.database.Close
 	CallSub(Main,"ShowBetsPopUp")
 End If
